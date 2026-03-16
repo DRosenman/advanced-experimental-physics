@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{mdframed}
+\geometry{margin=1in}
+
+\title{Informal Derivation of Euler's Identity}
+\author{David Rosenman}
+\date{August 2, 2018}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{mdframed}
+\emph{%
+“Who would have thought that $\pi$ which enters as the ratio of
+circumference to diameter, $e$, as the natural base for logarithms,
+$i$, as the fundamental imaginary unit and 0 and 1 (which we know
+all about from infancy) would all be tied together in any way,
+not to mention such a simple and compact way? I hope I never
+stumble into anything like this formula, for nothing I do after
+that in life would have any significance.”
+}
+
+\hfill — Ramamurti Shankar
+\end{mdframed}
+
+The Nobel Prize-winning physicist Richard Feynman called equation (1), known as Euler's identity, "one of the most remarkable, almost astounding, formulas in all of mathematics."
+
+\begin{equation}
+    {e^{i\pi }} + 1 = 0
+\end{equation}
+
+Euler's identity can be derived easily from the Taylor series...
+\begin{equation}
+f\left( x \right) = \sum\limits_{n = 0}^\infty  {\frac{{{f^{\left( n \right)}}\left( 0 \right)}}{{n!}}{x^n}} 
+\end{equation}
+
+...as well as defining $e^{ax}$ as
+\begin{equation}
+    {e^{ax}} = \sum\limits_{n = 0}^\infty  {\frac{{{{\left( {ax} \right)}^n}}}{{n!}}} 
+\end{equation}
+
+In equation (2), $f^(n)$ represents the $n$-th derivative of the function $f$, with the zeroth derivative of $f$ being equal to $f$.
+
+The Taylor series of $cos(x)$ can be easily derived from equation (2).
+
+\[
+\renewcommand{\arraystretch}{1.25} % try 1.2–1.6 to taste
+\begin{array}{l}
+{f^0}\left( x \right) = f\left( x \right) = \cos x\\
+{f^0}\left( 0 \right) = f\left( 0 \right) = \cos 0 = 1\\
+{f^1}\left( x \right) = \frac{{df\left( x \right)}}{{dx}} = \frac{d}{{dx}}\cos x =  - \sin x\\
+{f^1}\left( 0 \right) =  - \sin 0 = 0\\
+{f^2}\left( x \right) = \frac{{{d^2}f\left( x \right)}}{{dx^2}} =  - \frac{d}{{dx}}\sin x =  - \cos x\\
+{f^2}\left( 0 \right) =  - \cos 0 =  - 1\\
+{f^3}\left( x \right) =  - \frac{d}{{dx}}\cos x = \sin x\\
+{f^3}\left( 0 \right) = \sin 0 = 0\\
+{f^4}\left( x \right) = \frac{d}{{dx}}\sin x = \cos x\\
+{f^4}\left( 0 \right) = \cos 0 = 1\\
+\end{array}
+\]
+
+From the equations above, as well at equation (2), it follows that:
+\begin{equation}
+    \cos x = 1 - \frac{{{x^2}}}{{2!}} + \frac{{{x^4}}}{{4!}} - ... = \sum\limits_{n = 0}^\infty  {\frac{{{{\left( { - 1} \right)}^n}}}{{\left( {2n} \right)!}}}  {x^{2n}}
+\end{equation}
+
+The Taylor series of $\sin x$ can also be derived from equation (2).
+
+\[
+\renewcommand{\arraystretch}{1.25} % try 1.2–1.6 to taste
+\begin{array}{l}
+{f^0}\left( x \right) = f\left( x \right) = \sin x\\
+{f^0}\left( 0 \right) = \sin 0 = 0\\
+{f^1}\left( x \right) = \frac{d}{{dx}}\sin x = \cos x\\
+{f^1}\left( 0 \right) = \cos 0 = 1\\
+{f^2}\left( x \right) = \frac{d}{{dx}}\cos x =  - \sin x\\
+{f^2}\left( 0 \right) =  - \sin 0 = 0\\
+{f^3}\left( x \right) =  - \frac{d}{{dx}}\sin x =  - \cos x\\
+{f^3}\left( 0 \right) =  - \cos 0 =  - 1\\
+{f^4}\left( x \right) =  - \frac{d}{{dx}}\cos x = \sin x\\
+{f^4}\left( 0 \right) = \sin 0 = 0\\
+{f^5}\left( x \right) = \frac{d}{{dx}}\sin x = \cos x\\
+{f^5}\left( 0 \right) = \cos 0 = 1
+\end{array}
+\]
+
+From the equations above and equation (2), it follows that:
+
+\begin{equation}
+    \sin x = x - \frac{{{x^3}}}{{3!}} + \frac{{{x^5}}}{{5!}} - ... = \sum\limits_{n = 0}^\infty  {\frac{{{{\left( { - 1} \right)}^n}}}{{\left( {2n + 1} \right)!}}{x^{2n + 1}}} 
+\end{equation}
+
+From equations (3), (4), and (5), if $\theta$ is a real number:
+
+\[
+\renewcommand{\arraystretch}{1.25} % try 1.2–1.6 to taste
+\begin{array}{l}
+e^{i\theta} = \sum\limits_{n=0}^{\infty} \frac{(i\theta)^n}{n!}
+= 1 + i\theta + \underbrace{i^2}_{-1}\frac{\theta^2}{2!}
++ \underbrace{i^3}_{-i}\frac{\theta^3}{3!}
++ \underbrace{i^4}_{1}\frac{\theta^4}{4!}
++ \underbrace{i^5}_{i}\frac{\theta^5}{5!} - \ldots\\
+e^{i\theta} = 1 + i\theta - \frac{\theta^2}{2!} - \frac{i\theta^3}{3!}
++ \frac{\theta^4}{4!} + \frac{i\theta^5}{5!} - \ldots
+\end{array}
+\]
+
+\begin{equation}
+    e^{i\theta} =
+\underbrace{\left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \ldots\right)}_{\cos\theta}
++ i\underbrace{\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \ldots\right)}_{\sin\theta}
+= \cos\theta + i\sin\theta
+\end{equation}
+
+Finally, let $\theta = \pi$. Equation (6) becomes:
+\begin{equation*}
+    {e^{i\pi }} = \cos \pi  + i\sin \pi  =  - 1
+\end{equation*}
+
+And finally:
+\begin{equation*}
+    \boxed{e^{i\pi} + 1 = 0}
+\end{equation*}
+
+
+\section*{References}
+\begin{enumerate}
+  \item Ramamurti Shankar, \emph{Principles of Quantum Mechanics}. Springer, 1994.
+  \item James Stewart, \emph{Calculus: Early Transcendentals}. Cengage Learning, 2012.
+\end{enumerate}
+
+
+\end{document}
