@@ -49,7 +49,7 @@
 {\fontsize{36}{42}\selectfont\bfseries\textcolor{accentblue}{ABSURD PHYSICS}}
 
 \vspace{8pt}
-{\large\textcolor{seriestitle}{\textit{A series exploring impossible worlds with both easy to understand proofs relying on symmetry that the non-mathematician can understand as well as proofs requiring complicated mathematics.}}}
+{\large\textcolor{seriestitle}{\textit{A series exploring impossible worlds using both intuitive symmetry arguments that do not require advanced math and more formal derivations for readers who want the full proof.}}}
 
 \vspace{1.5cm}
 \rule{0.6\textwidth}{0.5pt}
@@ -64,7 +64,12 @@
 \vspace{8pt}
 {\large\textit{What would gravity be like on a planet shaped like\\an infinitely wide, uniform slab? It is possible to understand the answer with or without math. Without math, we can rely on a simple argument from symmetry.}}
 
-\vspace{2cm}
+\vspace{1.5cm}
+
+{\large Dave Rosenman}\\[4pt]
+{\normalsize \texttt{dave.rosenman.data@gmail.com}}
+
+\vspace{1.5cm}
 \rule{0.6\textwidth}{0.5pt}
 \end{center}
 
@@ -76,7 +81,7 @@ Welcome to \seriesname. This is the first installment of a series in which we ta
 
 Each article is split into two parts. \textbf{Part~1} builds intuition. No equations, no formalism---just careful reasoning about symmetry, geometry, and physical principles. If the argument is good enough, you should \textit{believe} the answer before seeing a single fancy math symbol.
 
-\textbf{Part~2} is the mathematical proof. We roll up our sleeves, set up the math, and demonstrate rigorously that the intuitive answer is correct. If you're not a math person, Part~1 is designed to stand on its own and you can skip Part~2. If you \textit{are} a math person, Part~2 is where the real satisfaction lives.
+\textbf{Part~2} is the mathematical proof. We roll up our sleeves, set up the math, and show that the intuitive answer is correct. If you're not a math person, Part~1 is designed to stand on its own and you can skip Part~2. If you \textit{are} a math person, Part~2 is where the real satisfaction lives.
 
 Let's begin.
 
@@ -98,7 +103,7 @@ The important consequence for us is this: when you're standing on a planet, the 
 
 \section*{The Setup}
 
-Imagine a world that extends forever in every horizontal direction---an infinite flat slab of rock, uniform in thickness, uniform in density, stretching to the horizon and beyond it, forever. An endless horizontal pizza, if you will. No edges. No curvature. Just flat ground, above and below, going on without limit.
+Imagine a world that extends forever in every horizontal direction---an infinite flat slab of rock, uniform in thickness, uniform in density, stretching to the horizon and beyond it, forever. An endless horizontal slab, if you will. No edges. No curvature. Just flat ground, above and below, going on without limit.
 
 You're standing on top of it.
 
@@ -110,7 +115,7 @@ What does gravity feel like?
 
 \section{The Argument from Symmetry}
 
-We can figure out almost everything about gravity on the infinite pizza without doing any math at all. The only tool we need is \textbf{symmetry}---if a situation looks the same from two perspectives, the physics must be the same from each perspective.
+We can figure out almost everything about gravity on the infinite flat slab without doing any math at all. The only tool we need is \textbf{symmetry}---if a situation looks the same from two perspectives, the physics must be the same from each perspective.
 
 \subsection{Gravity points straight down}
 
@@ -118,56 +123,58 @@ Stand anywhere on the surface of the slab. Define north, south, east, and west h
 
 Now ask: does gravity pull me to the north?
 
-It can't. There's nothing special about north. Every chunk of matter to your north, pulling you that way, is perfectly mirrored by an identical chunk to your south, pulling you back. The horizontal forces cancel---not approximately, but \textit{exactly}, by the perfect symmetry of the configuration.
+It can't. If it did, why north instead of south? There is no physical reason for such a preference. The situation is perfectly symmetric under rotations in the horizontal plane, so any horizontal component of gravity would pick out a special direction where none exists.
 
-The same argument kills every horizontal direction. Gravity can only point in the one direction that \textit{is} special: \textbf{straight down}, perpendicular to the slab. And this is true no matter where you stand, since every point on an infinite slab looks identical to every other point.
+So gravity cannot point north, south, east, west, or in any horizontal direction at all.
 
-So without a single equation, we've nailed down the \textit{direction} of gravity everywhere. That's already a lot.
+That leaves only one possibility:
+
+\begin{center}
+\fbox{\parbox{0.72\textwidth}{\centering
+\textbf{Gravity must point straight down, perpendicular to the slab.}
+}}
+\end{center}
+
+This is already strange. On a spherical planet, gravity points toward the center. On an infinite flat slab, there \textit{is} no center. The only distinguished direction is ``toward the slab.''
+
+The same conclusion comes from mirror symmetry. For every chunk of mass on your left, there is a matching chunk on your right. Their sideways pulls cancel. The only surviving component is the one pointing down toward the slab.
 
 % ================================================================
-% FIGURE: SYMMETRY ARGUMENT
+% FIGURE: SYMMETRY
 % ================================================================
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}[scale=1.0, >=Stealth]
+\begin{tikzpicture}[scale=0.9, >=Stealth]
 
-  % --- Slab cross-section ---
-  \fill[slabcolor] (-6.5, -0.8) rectangle (6.5, 0.8);
+  % Slab body
+  \fill[slabcolor, opacity=0.6] (-6.5, -0.8) rectangle (6.5, 0.8);
   \draw[thick, slabdark] (-6.5, 0.8) -- (6.5, 0.8);
   \draw[thick, slabdark] (-6.5, -0.8) -- (6.5, -0.8);
 
-  % Dashed edges to suggest infinite extent
-  \foreach \y in {-0.8, 0.8} {
-    \draw[thick, densely dashed, slabdark] (-6.5, \y) -- (-7.2, \y);
-    \draw[thick, densely dashed, slabdark] (6.5, \y) -- (7.2, \y);
-  }
-
-  \node at (-7.5, 0) {\large$\cdots$};
-  \node at (7.5, 0) {\large$\cdots$};
+  % Dashed continuation
+  \draw[thick, densely dashed, slabdark] (-6.5, 0.8) -- (-7.2, 0.8);
+  \draw[thick, densely dashed, slabdark] (-6.5, -0.8) -- (-7.2, -0.8);
+  \draw[thick, densely dashed, slabdark] (6.5, 0.8) -- (7.2, 0.8);
+  \draw[thick, densely dashed, slabdark] (6.5, -0.8) -- (7.2, -0.8);
+  \node at (-7.5, 0) {$\cdots$};
+  \node at (7.5, 0) {$\cdots$};
 
   % Thickness label
-  \draw[<->, thick] (6.9, -0.8) -- (6.9, 0.8);
-  \node[right] at (6.9, 0) {$d$};
+  \draw[<->, thick] (6.8, -0.8) -- (6.8, 0.8);
+  \node[right] at (6.8, 0) {$h$};
 
-  % --- Observer point ---
+  % Point P above slab
   \filldraw[accentblue] (0, 1.2) circle (3pt);
-  \node[above right, accentblue] at (0.1, 1.25) {$P$};
+  \node[above right, accentblue] at (0, 1.2) {$P$};
 
-  % --- Symmetric mass elements and force arrows ---
-  \filldraw[arrowred, opacity=0.6] (-4, 0) circle (5pt);
-  \node[below, arrowred, font=\small] at (-4, -1.1) {$\delta m$};
+  % Two symmetric mass elements
+  \filldraw[arrowred] (-3.0, 0.0) circle (2.5pt);
+  \filldraw[arrowred] (3.0, 0.0) circle (2.5pt);
+  \node[below, arrowred] at (-3.0, -0.1) {$\delta m_{\text{left}}$};
+  \node[below, arrowred] at (3.0, -0.1) {$\delta m_{\text{right}}$};
 
-  \filldraw[arrowgreen, opacity=0.6] (4, 0) circle (5pt);
-  \node[below, arrowgreen, font=\small] at (4, -1.1) {$\delta m$};
-
-  \draw[->, arrowred, very thick, opacity=0.8] (0, 1.2) -- ++(25:1.8)
-    node[above right, font=\small] {$\mathbf{F}_{\text{left}}$};
-  \draw[->, arrowred, dashed, opacity=0.5] (0, 1.2) -- ++(0:1.5);
-  \draw[->, arrowred, dashed, opacity=0.5] (0, 1.2) -- ++(90:0.85);
-
-  \draw[->, arrowgreen, very thick, opacity=0.8] (0, 1.2) -- ++(155:1.8)
-    node[above left, font=\small] {$\mathbf{F}_{\text{right}}$};
+  % Force arrows from mass elements to P
   \draw[->, arrowgreen, dashed, opacity=0.5] (0, 1.2) -- ++(180:1.5);
   \draw[->, arrowgreen, dashed, opacity=0.5] (0, 1.2) -- ++(90:0.85);
 
@@ -185,7 +192,7 @@ So without a single equation, we've nailed down the \textit{direction} of gravit
   \draw[->, thick, gray] (-6.0, -1.8) -- (-6.0, -0.9) node[above, font=\small] {$z$};
 
 \end{tikzpicture}
-\caption{Cross-section of the infinite slab (thickness~$d$). For every mass element $\delta m$ to the left of point $P$, an identical element exists at the mirror position to the right. Their horizontal force components cancel exactly, leaving only the vertical pull.}
+\caption{Cross-section of the infinite slab (thickness~$h$). For every mass element $\delta m$ to the left of point $P$, an identical element exists at the mirror position to the right. Their horizontal force components cancel exactly, leaving only the vertical pull.}
 \label{fig:symmetry}
 \end{figure}
 
@@ -197,11 +204,11 @@ The gravitational field is the same everywhere on the surface. It's \textit{unif
 
 \subsection{The really strange part: gravity doesn't weaken with altitude}
 
-This is the claim that raises eyebrows. When I first encountered it in an upper-level course on electromagnetic theory, it genuinely blew my mind. On Earth, fly higher and gravity weakens---you're moving away from the center of the planet. On the infinite pizza, fly upward and\ldots{} nothing changes. The pull is \textit{exactly the same} at any height above the surface.
+This is the claim that raises eyebrows. When I first encountered it in an upper-level course on electromagnetic theory, it genuinely blew my mind. On Earth, fly higher and gravity weakens---you're moving away from the center of the planet. On the infinite flat slab, fly upward and\ldots{} nothing changes. The pull is \textit{exactly the same} at any height above the surface.
 
 Before getting to the symmetry argument, it helps to think about \textit{why} gravity weakens with altitude on a sphere in the first place. On a spherical planet, all the mass is concentrated in a finite region below you. Move away from it and every single chunk of that mass is now farther from you. Farther means weaker pull (inverse-square law), and since there's no new mass appearing to compensate, the total force drops.
 
-On the infinite slab, the situation is fundamentally different. Move upward and yes, the patch of slab directly beneath your feet is now farther away, pulling more weakly. But here's what doesn't happen on a sphere: by moving upward, you've changed the \textit{angle} at which distant parts of the slab pull on you. When you're standing right on the surface, a chunk of slab a thousand kilometers away is pulling you almost perfectly \textit{horizontally}---it barely contributes to the downward force at all. It's almost parallel to you. But float a thousand kilometers up, and that same chunk is now well below you. Its pull has rotated from nearly horizontal to significantly downward. It's contributing much more to the force holding you down than it was before.
+On the infinite slab, the situation is fundamentally different. Move upward and yes, the patch of slab directly beneath your feet is now farther away, pulling more weakly. But here's what doesn't happen on a sphere: by moving upward, you've changed the \textit{angle} at which distant parts of the slab pull on you. When you're standing right on the surface, a chunk of slab a thousand kilometers away is pulling you almost perfectly \textit{horizontally}---it barely contributes to the downward force at all. But float a thousand kilometers up, and that same chunk is now well below you. Its pull has rotated from nearly horizontal to significantly downward. It's contributing much more to the force holding you down than it was before.
 
 So as you rise, you lose pull from what's directly below you, but you \textit{gain} pull from the vast reaches of the slab stretching out to the sides---mass that was always there but wasn't contributing much when you were close to the surface. On a sphere, there's no ``vast reaches'' to pick up the slack. On an infinite slab, there's always more slab, extending forever, ready to compensate.
 
@@ -209,7 +216,7 @@ The symmetry argument makes this precise. Picture yourself floating a kilometer 
 
 \subsection{Inside the slab}
 
-What if you tunnel into the pizza? Here, finally, something changes. As you descend, the mass above you starts pulling you \textit{up}, partially canceling the pull of the mass below. At the exact midplane---dead center of the slab---symmetry kicks in again, but now it's vertical symmetry. The mass above and below are mirror images. Every upward pull has a matching downward pull.
+What if you tunnel into the slab? Here, finally, something changes. As you descend, the mass above you starts pulling you \textit{up}, partially canceling the pull of the mass below. At the exact midplane---dead center of the slab---symmetry kicks in again, but now it's vertical symmetry. The mass above and below are mirror images. Every upward pull has a matching downward pull.
 
 \textbf{Gravity is zero at the midplane.}
 
@@ -227,23 +234,11 @@ Without writing a single equation, symmetry alone has told us:
   \item Below the midplane, everything mirrors: gravity reverses and pulls you back up toward the center.
 \end{itemize}
 
-\subsection{What if the slab had no thickness at all?}
-
-Before we leave the symmetry arguments behind, it's worth asking: what if our infinite world were truly flat? Not a slab with some thickness, but an infinitely thin sheet---a mathematical plane with some mass per unit area but zero thickness.
-
-The symmetry argument barely changes. The sheet is still infinite and uniform in all horizontal directions, so gravity still has to point straight down (or straight up, on the other side). And there's still no preferred location on the sheet, so the field is still uniform along the surface. The only thing we lose is the interior: there's no ``inside'' to tunnel into. You're either above the sheet or below it, and the midplane \textit{is} the sheet.
-
-What about the constant-with-altitude property? The same reasoning applies, maybe even more cleanly. An infinite sheet looks the same from any height---there's no length scale at all now, not even a thickness to compare against. The field should be constant above and constant below.
-
-There is one new wrinkle: the field has to be \textit{discontinuous} at the sheet. Above it, gravity pulls you down. Below it, gravity pulls you up. Right at the sheet, the two fields meet and there's a sudden jump. This makes physical sense---you're crossing an infinite plane of matter. We'll compute the size of the jump in Part~2, but symmetry already tells us the field above must equal the field below in magnitude (just opposite in direction), so the total jump is twice the one-sided value.
-
-The zero-thickness case is actually \textit{simpler}---a cleaner version of the slab, with all the same qualitative features except the linear ramp through the interior, which collapses to a single discontinuous flip.
-
 \subsection{Some consequences}
 
 \textbf{No orbits.}\quad Orbital mechanics requires a force that weakens with distance. A satellite in a constant gravitational field doesn't orbit---it follows parabolic arcs, like a ball thrown in a room. Toss something sideways and it curves downward at the same rate no matter how fast it's going. Speed just makes the parabola wider.
 
-\textbf{No escape.}\quad On a spherical planet, fly high enough and gravity fades away. You can reach escape velocity and leave forever. Here, the pull never lets up. No matter how fast you launch yourself upward, you'll eventually stop and fall back. Gravitational potential energy grows linearly with height, forever. You're trapped---not by some dramatic cosmic mechanism, but by the quiet, patient, unyielding constancy of the field.
+\textbf{No escape.}\quad On a spherical planet, fly high enough and gravity fades away. You can reach escape velocity and leave forever. Here, the pull never lets up. No matter how fast you launch yourself upward, you'll eventually stop and fall back. Gravitational potential energy grows linearly with height, forever. In this idealized model, you can never simply coast away from the slab.
 
 \textbf{The atmosphere goes on forever.}\quad On Earth, the atmosphere thins exponentially with altitude partly because gravity weakens. Here, gravity \textit{doesn't} weaken, so the atmosphere still thins exponentially---but the scale height stays the same at every altitude. There's no sharp boundary. The air just gets thinner and thinner, never truly ending.
 
@@ -261,7 +256,7 @@ The best analogy for the infinite slab is actually the one you already know: sta
 
 So: trapped, yes. Black hole, not remotely. The friendliest prison in physics.
 
-\newpage
+%\newpage
 
 % ================================================================
 % PART 2
@@ -269,19 +264,17 @@ So: trapped, yes. Black hole, not remotely. The friendliest prison in physics.
 
 \section{The Mathematical Proof}
 
-Time to make all of this rigorous. We want to compute the gravitational field of an infinite uniform slab of thickness~$d$ and density~$\rho$, at an arbitrary point above (or inside) the slab. Then we'll handle the zero-thickness case as a special limit.
+Time to make all of this rigorous. We want to compute the gravitational field of an infinite uniform slab of thickness~$h$ and density~$\rho$, at an arbitrary point above (or inside) the slab.
 
-\textbf{A note on variables:} throughout this section, $d$ stands for the \textit{thickness} of the slab---\textbf{not} a differential and \textbf{not} time. We avoid using $t$ for thickness precisely because it's too easy to confuse with time.
-
-The mathematical framework here is borrowed from electrostatics. Because Newtonian gravity and Coulomb's law share the same inverse-square structure, every technique for computing electric fields---superposition, Gauss's Law, the shell theorem---carries over directly to gravity with only minor sign changes.
+The mathematical framework here is borrowed from electrostatics. Because Newtonian gravity and Coulomb's law share the same inverse-square structure, the same style of reasoning carries over with only minor sign changes. The treatment below relies mainly on Gauss's law, as developed in Chapter~2 of Griffiths, adapted from electric charge distributions to mass distributions.
 
 \subsection{Setup}
 
-Place the slab so that it occupies the region $-d/2 \leq z \leq d/2$, extending infinitely in the $x$ and $y$ directions. We want the gravitational acceleration $\mathbf{g}$ at an arbitrary point $P = (0, 0, z_0)$. By the symmetry arguments of Part~1, we already know $\mathbf{g}$ must point in the $-\hat{z}$ direction and depend only on~$z_0$. But let's prove it---and find the magnitude---by direct calculation.
+Place the slab so that it occupies the region $-h/2 \leq z \leq h/2$, extending infinitely in the $x$ and $y$ directions. We want the gravitational acceleration $\mathbf{g}$ at an arbitrary point $P = (0, 0, z_0)$. By the symmetry arguments of Part~1, we already know $\mathbf{g}$ must point in the $-\hat{z}$ direction and depend only on~$z_0$. But let's prove it---and find the magnitude---by direct calculation.
 
 \subsection{Method 1: Direct integration}
 
-Consider a thin horizontal sheet of the slab at height~$z'$, with infinitesimal thickness~$dz'$. This sheet has surface mass density $\sigma = \rho \, dz'$. Our strategy: find the gravitational field of a single infinite sheet, then integrate over all sheets in the slab.
+Consider a thin horizontal sheet of the slab at height~$z'$, with infinitesimal thickness~$dz'$. This sheet has surface mass density $\sigma = \rho \, dz'$. Our strategy is to find the gravitational field of a single infinite sheet and then integrate over all sheets in the slab.
 
 \subsubsection{Field of a single infinite sheet}
 
@@ -360,14 +353,14 @@ A ring of the sheet at radial distance~$r$ from the point directly below~$P$ has
 
 Integrate over $r$ from $0$ to $\infty$:
 \begin{equation}
-  g_z^{\,\text{sheet}} = -2\pi G \sigma \,(z_0 - z') \int_0^\infty \frac{r \, dr}{\bigl[\,r^2 + (z_0 - z')^2\,\bigr]^{3/2}}.
+  g_z^{\,\text{sheet}} = -2\pi G \sigma \, (z_0 - z') \int_0^\infty \frac{r \, dr}{\bigl[\,r^2 + (z_0 - z')^2\,\bigr]^{3/2}}.
 \end{equation}
 
 Substitute $u = r^2 + (z_0 - z')^2$, so $du = 2r\,dr$:
 \begin{align}
-  g_z^{\,\text{sheet}} &= -2\pi G \sigma \,(z_0 - z') \cdot \frac{1}{2} \int_{(z_0 - z')^2}^{\infty} u^{-3/2}\,du \notag \\[6pt]
-  &= -2\pi G \sigma \,(z_0 - z') \cdot \frac{1}{2} \left[-2\,u^{-1/2}\right]_{(z_0-z')^2}^{\,\infty} \notag \\[6pt]
-  &= -2\pi G \sigma \,(z_0 - z') \cdot \frac{1}{|z_0 - z'|}.
+  g_z^{\,\text{sheet}} &= -2\pi G \sigma \, (z_0 - z') \cdot \frac{1}{2} \int_{(z_0 - z')^2}^{\infty} u^{-3/2}\,du \notag \\
+  &= -2\pi G \sigma \, (z_0 - z') \cdot \frac{1}{2} \left[-2\,u^{-1/2}\right]_{(z_0-z')^2}^{\,\infty} \notag \\
+  &= -2\pi G \sigma \, (z_0 - z') \cdot \frac{1}{|z_0 - z'|}.
 \end{align}
 
 For $z_0 > z'$, this gives:
@@ -376,30 +369,30 @@ For $z_0 > z'$, this gives:
   \label{eq:sheet}
 \end{equation}
 
-Stop and look at this. \textbf{The field of an infinite sheet doesn't depend on how far away you are.} Stand a meter from the sheet or a light-year from it---same pull. This is the key result, and everything else follows from it.
+This is the key result, and everything else follows from it. The field of a single infinite sheet does not depend on how far away you are from the sheet.
 
 \subsubsection{Integrating over the slab}
 
-The slab is just a stack of sheets from $z' = -d/2$ to $z' = d/2$, each with $\sigma = \rho \, dz'$. For a point above the slab ($z_0 > d/2$), every sheet pulls downward with the same strength:
+The slab is just a stack of sheets from $z' = -h/2$ to $z' = h/2$, each with $\sigma = \rho \, dz'$. For a point above the slab ($z_0 > h/2$), every sheet pulls downward with the same strength:
 \begin{equation}
-  g_z = \int_{-d/2}^{\,d/2} \!\bigl(-2\pi G \rho\bigr)\,dz' = -2\pi G \rho \, d.
+  g_z = \int_{-h/2}^{\,h/2} \!\bigl(-2\pi G \rho\bigr)\,dz' = -2\pi G \rho \, h.
 \end{equation}
 
 So:
 \begin{equation}
-  \boxed{\;g = 2\pi G \rho\, d\;}
+  \boxed{\;g = 2\pi G \rho\, h\;}
   \label{eq:slab}
 \end{equation}
 
-Constant. Independent of $z_0$. Exactly what we predicted.
+Constant with altitude outside the slab, exactly as predicted.
 
 \subsection{Method 2: Gauss's Law}
 
-Gauss's Law for gravity states that for any closed surface~$S$:
+Gauss's law for gravity states that for any closed surface~$S$:
 \begin{equation}
   \oint_S \mathbf{g} \cdot d\mathbf{A} = -4\pi G\, M_{\text{enc}}
 \end{equation}
-where $M_{\text{enc}}$ is the total mass enclosed by~$S$. The sign difference from the electrostatic version reflects the fact that gravity is always attractive, while electric charges can repel.
+where $M_{\text{enc}}$ is the total mass enclosed by~$S$. This is the gravitational analog of Gauss's law in electrostatics. The sign difference reflects the fact that gravity is always attractive, while electric charges can repel.
 
 \subsubsection{Above the slab}
 
@@ -477,13 +470,13 @@ Pick a ``Gaussian pillbox''---a short cylinder with its flat faces parallel to t
 
   % Slab thickness
   \draw[<->, thick] (5.8, -1.0) -- (5.8, 1.0);
-  \node[right, font=\small] at (5.8, 0) {$d$};
+  \node[right, font=\small] at (5.8, 0) {$h$};
 
   % Midplane
   \draw[densely dotted, gray] (-5.5, 0) -- (5.5, 0);
 
   % Enclosed mass annotation
-  \node[font=\footnotesize] at (0, 0) {$M_{\text{enc}} = \rho \cdot d \cdot A$};
+  \node[font=\footnotesize] at (0, 0) {$M_{\text{enc}} = \rho \cdot h \cdot A$};
 
 \end{tikzpicture}
 \caption{The Gaussian pillbox for the exterior field. The cylinder straddles the entire slab symmetrically. The gravitational field $\mathbf{g}$ points inward (toward the midplane) on both flat faces, and runs parallel to the curved sides, contributing no flux there. All the slab mass within the cylinder's cross-section is enclosed.}
@@ -494,19 +487,19 @@ By symmetry, $\mathbf{g}$ points in $-\hat{z}$ above the slab and $+\hat{z}$ bel
 
 The flux through the top face is $-gA$ (field points inward, opposite to the outward normal). The bottom face also contributes $-gA$ (field points inward there too). So the total flux is:
 \begin{equation}
-  -2gA = -4\pi G\,(\rho \cdot d \cdot A).
+  -2gA = -4\pi G\,(\rho \cdot h \cdot A).
 \end{equation}
 
 And we get:
 \begin{equation}
-  g = 2\pi G \rho\, d.
+  g = 2\pi G \rho\, h.
 \end{equation}
 
-Same answer. Three lines instead of a page of integration. That's the power of Gauss's Law when you've got enough symmetry to use it.
+Same answer. Three lines instead of a page of integration. That's the power of Gauss's law when you've got enough symmetry to use it.
 
 \subsubsection{Inside the slab}
 
-Put the pillbox faces at $+z_0$ and $-z_0$, where $0 < z_0 < d/2$. Now the enclosed mass is just the portion of the slab between $-z_0$ and $+z_0$---thickness $2z_0$ instead of~$d$.
+Put the pillbox faces at $+z_0$ and $-z_0$, where $0 < z_0 < h/2$. Now the enclosed mass is just the portion of the slab between $-z_0$ and $+z_0$---thickness $2z_0$ instead of~$h$.
 \begin{equation}
   -2g(z_0)\cdot A = -4\pi G\,(\rho \cdot 2z_0 \cdot A)
 \end{equation}
@@ -514,12 +507,12 @@ Put the pillbox faces at $+z_0$ and $-z_0$, where $0 < z_0 < d/2$. Now the enclo
   g(z_0) = 4\pi G \rho\, z_0
 \end{equation}
 
-Linear in~$z_0$, just as the symmetry argument predicted. At the midplane ($z_0 = 0$), gravity vanishes. At the surface ($z_0 = d/2$), we recover $g = 2\pi G \rho\,d$.
+Linear in~$z_0$, just as the symmetry argument predicted. At the midplane ($z_0 = 0$), gravity vanishes. At the surface ($z_0 = h/2$), we recover $g = 2\pi G \rho\,h$.
 
 \subsection{Summary of the field profile}
 
 \begin{equation}
-  \boxed{\;g(z) = \begin{cases} 2\pi G \rho\, d & \text{for } |z| > d/2 \quad \text{(outside the slab)} \\[8pt] 4\pi G \rho\, |z| & \text{for } |z| \leq d/2 \quad \text{(inside the slab)} \end{cases}\;}
+  \boxed{\;g(z) = \begin{cases} 2\pi G \rho\, h & \text{for } |z| > h/2 \quad \text{(outside the slab)} \\[8pt] 4\pi G \rho\, |z| & \text{for } |z| \leq h/2 \quad \text{(inside the slab)} \end{cases}\;}
   \label{eq:profile}
 \end{equation}
 
@@ -543,24 +536,19 @@ Linear in~$z_0$, just as the symmetry argument predicted. At the midplane ($z_0 
   \draw[slabdark, densely dashed] (1.5, -0.5) -- (1.5, 4.2);
 
   % Slab labels
-  \node[slabdark, font=\footnotesize] at (-1.5, -0.8) {$-d/2$};
-  \node[slabdark, font=\footnotesize] at (1.5, -0.8) {$d/2$};
+  \node[slabdark, font=\footnotesize] at (-1.5, -0.8) {$-h/2$};
+  \node[slabdark, font=\footnotesize] at (1.5, -0.8) {$h/2$};
   \node[slabdark, font=\footnotesize] at (0, 4.4) {slab};
 
   % The field profile
-  % Left exterior: constant
   \draw[accentblue, line width=2pt] (-5.0, 3.0) -- (-1.5, 3.0);
-
-  % Interior: linear ramp
   \draw[accentblue, line width=2pt] (-1.5, 3.0) -- (0, 0);
   \draw[accentblue, line width=2pt] (0, 0) -- (1.5, 3.0);
-
-  % Right exterior: constant
   \draw[accentblue, line width=2pt] (1.5, 3.0) -- (5.0, 3.0);
 
   % Dashed level line for g_surface
   \draw[gray, densely dotted] (-5.0, 3.0) -- (5.0, 3.0);
-  \node[left, font=\small] at (-5.0, 3.0) {$2\pi G\rho d$};
+  \node[left, font=\small] at (-5.0, 3.0) {$2\pi G\rho h$};
 
   % Annotations
   \draw[<-, thick, gray] (-3.5, 3.0) -- (-3.5, 3.8);
@@ -582,77 +570,13 @@ Linear in~$z_0$, just as the symmetry argument predicted. At the midplane ($z_0 
   \node[arrowred, font=\tiny, below] at (3.5, -0.9) {$\mathbf{g}$ toward midplane};
 
 \end{tikzpicture}
-\caption{The gravitational field magnitude $g(z)$ as a function of position. Outside the slab, the field is constant at $2\pi G\rho d$. Inside, it drops linearly to zero at the midplane. The direction is always toward the midplane: downward above, upward below.}
+\caption{The gravitational field magnitude $g(z)$ as a function of position. Outside the slab, the field is constant at $2\pi G\rho h$. Inside, it drops linearly to zero at the midplane. The direction is always toward the midplane: downward above, upward below.}
 \label{fig:field-profile}
 \end{figure}
 
-\subsection{The zero-thickness limit}
-
-Now let's take the thickness to zero. Shrink $d \to 0$ while keeping the total surface mass density $\sigma = \rho\, d$ fixed. (If we let $\sigma$ vanish too, the field just disappears---not very interesting.)
-
-The exterior field becomes:
-\begin{equation}
-  g = 2\pi G \sigma
-\end{equation}
-
-This is exactly equation~(\ref{eq:sheet})---no surprise, since a slab of zero thickness \textit{is} a sheet. The field is constant above and constant below, with magnitude $2\pi G\sigma$ on each side.
-
-What about the interior? There isn't one anymore. The linear ramp from $g = 2\pi G \rho\, d$ at the surface down to $g = 0$ at the midplane has been crushed to a single point. The field jumps discontinuously from $+2\pi G \sigma$ (pointing down, just above) to $-2\pi G \sigma$ (pointing up, just below)---a total discontinuity of $4\pi G \sigma$.
-
-% ================================================================
-% FIGURE: ZERO-THICKNESS FIELD
-% ================================================================
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[scale=0.85, >=Stealth]
-
-  % Axes
-  \draw[->, thick] (-5.5, 0) -- (5.5, 0) node[right] {$z$};
-  \draw[->, thick] (0, -3.8) -- (0, 4.2) node[above] {$g_z(z)$};
-
-  % The sheet
-  \draw[sheetcolor, line width=2pt] (-4.5, 0) -- (4.5, 0);
-  \node[sheetcolor, font=\footnotesize, below right] at (3.0, -0.15) {sheet};
-
-  % Field above: constant negative (pointing down = toward sheet)
-  \draw[accentblue, line width=2pt] (0.08, -2.5) -- (5.0, -2.5);
-  \node[accentblue, font=\small, right] at (5.0, -2.5) {$-2\pi G\sigma$};
-
-  % Field below: constant positive (pointing up = toward sheet)
-  \draw[accentblue, line width=2pt] (-5.0, 2.5) -- (-0.08, 2.5);
-  \node[accentblue, font=\small, left] at (-5.0, 2.5) {$+2\pi G\sigma$};
-
-  % Discontinuity
-  \draw[accentblue, densely dotted, thick] (0, -2.5) -- (0, 2.5);
-  \filldraw[white] (0, 2.5) circle (3pt);
-  \draw[accentblue, thick] (0, 2.5) circle (3pt);
-  \filldraw[white] (0, -2.5) circle (3pt);
-  \draw[accentblue, thick] (0, -2.5) circle (3pt);
-
-  % Jump annotation
-  \draw[<->, thick, arrowred] (0.5, -2.5) -- (0.5, 2.5);
-  \node[arrowred, font=\small, right] at (0.5, 0) {jump $= 4\pi G\sigma$};
-
-  % Direction annotations
-  \node[accentblue, font=\footnotesize] at (3.0, -3.2) {$\mathbf{g}$ points down (toward sheet)};
-  \node[accentblue, font=\footnotesize] at (-3.0, 3.2) {$\mathbf{g}$ points up (toward sheet)};
-
-\end{tikzpicture}
-\caption{The $z$-component of the gravitational field for a zero-thickness infinite sheet. The field is constant on each side but flips sign at the sheet, producing a discontinuity of magnitude $4\pi G\sigma$. This is the $d \to 0$ limit of the slab profile in Figure~\ref{fig:field-profile}---the linear ramp has collapsed to a single jump.}
-\label{fig:sheet-profile}
-\end{figure}
-
-We can also get this straight from Gauss's Law. Put a pillbox straddling the sheet, one face just above, one just below. The enclosed mass is $\sigma A$, and the two faces each see a field of magnitude~$g$ pointing inward:
-\begin{equation}
-  -2gA = -4\pi G\,\sigma A \quad\implies\quad g = 2\pi G\sigma.
-\end{equation}
-
-Same answer. The zero-thickness case isn't really a different problem---it's the same problem with the interior removed. Every qualitative feature (constant field, no orbits, no escape) carries over unchanged. The only thing that disappears is the smooth linear transition through the middle, replaced by an instantaneous flip.
-
 \subsection{A numerical example}
 
-Suppose our pizza has Earth-like density ($\rho = 5{,}500\;\text{kg/m}^3$) and is 100~km thick. Then:
+Suppose our infinite slab has Earth-like density ($\rho = 5{,}500\;\text{kg/m}^3$) and is 100~km thick. Then:
 \begin{equation}
   g = 2\pi \,(6.674 \times 10^{-11})(5{,}500)(100{,}000) \approx 0.23\;\text{m/s}^2.
 \end{equation}
@@ -663,12 +587,10 @@ That's about 2.3\% of Earth's surface gravity. You'd feel like you weigh about f
 
 The gravitational potential above the slab is:
 \begin{equation}
-  \Phi(z) = -2\pi G \rho\, d \cdot z + \text{const.}
+  \Phi(z) = -2\pi G \rho\, h \cdot z + \text{const.}
 \end{equation}
 
-This grows without bound as $z \to \infty$. To escape to infinity, you'd need infinite kinetic energy. There is no escape velocity. You're stuck, period.
-
-This holds for the zero-thickness sheet too. Replace $\rho\,d$ with $\sigma$ and the potential is $\Phi(z) = -2\pi G\sigma\, z + \text{const.}$---still unbounded, still no escape.
+This grows without bound as $z \to \infty$. To escape to infinity, you'd need infinite kinetic energy. There is no escape velocity in this idealized model.
 
 % ================================================================
 % CLOSING
@@ -676,7 +598,7 @@ This holds for the zero-thickness sheet too. Replace $\rho\,d$ with $\sigma$ and
 
 \section*{Closing Thoughts}
 
-The infinite pizza is one of the cleanest results in gravitational physics---a case where real geometry falls away and you're left with a perfectly uniform, perfectly constant gravitational field. The math is accessible to anyone who's taken first-year physics, and the result is weird enough to give even experienced physicists a moment of pause.
+The infinite flat slab is one of the cleanest results in gravitational physics---a case where real geometry falls away and you're left with a perfectly uniform, perfectly constant gravitational field. The math is accessible to anyone who's taken first-year physics, and the result is weird enough to give even experienced physicists a moment of pause.
 
 More than anything, it's a reminder that our intuitions about gravity---it weakens with distance, there's always an escape velocity, orbits are possible---are really just intuitions about \textit{spheres}. We live on one, so we've internalized its rules. Change the geometry, and the rules change completely.
 
@@ -691,6 +613,6 @@ More than anything, it's a reminder that our intuitions about gravity---it weake
 
 \subsection*{Further Reading}
 
-The mathematics in Part~2 is adapted from Chapter~2 of David~J.\ Griffiths' \textit{Introduction to Electrodynamics} (4th edition, Cambridge University Press, 2017). Although the book is about electrostatics, not gravity, the two theories share the same inverse-square force law, so every calculation carries over with only minor sign changes. If you want to see these techniques developed properly and at length, Chapter~2 of Griffiths is the place to go---it's one of the best-written textbook chapters in all of physics.
+The mathematics in Part~2 is adapted from David~J. Griffiths' \textit{Introduction to Electrodynamics} (4th edition, Cambridge University Press, 2017). Chapter~2 develops Gauss's law, which provides the main mathematical inspiration for the gravitational argument used here. Although the book is about electrostatics rather than gravity, the same general structure carries over because both are inverse-square laws. If you want to see these techniques developed more fully, Chapter~2 of Griffiths is an excellent reference.
 
 \end{document}
