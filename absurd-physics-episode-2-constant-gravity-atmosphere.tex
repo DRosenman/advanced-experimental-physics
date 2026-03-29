@@ -1,0 +1,331 @@
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+% Colors
+\definecolor{accentblue}{RGB}{40, 80, 140}
+\definecolor{seriestitle}{RGB}{80, 80, 80}
+
+% Header
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{seriestitle}{\textsc{Absurd Physics}}}
+\fancyhead[R]{\small\textcolor{seriestitle}{Episode 2}}
+\fancyfoot[C]{\thepage}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{2pt}\hrule\vspace{6pt}]
+
+% List formatting
+\setlist[itemize]{nosep}
+
+\newcommand{\seriesname}{\textsc{Absurd Physics}}
+
+\begin{document}
+
+% ================================================================
+% TITLE
+% ================================================================
+
+\begin{center}
+\vspace*{1.5cm}
+
+{\fontsize{36}{42}\selectfont\bfseries\textcolor{accentblue}{ABSURD PHYSICS}}
+
+\vspace{8pt}
+{\large\textcolor{seriestitle}{\textit{Exploring impossible worlds through intuition and mathematics}}}
+
+\vspace{1.5cm}
+\rule{0.6\textwidth}{0.5pt}
+\vspace{1.5cm}
+
+{\fontsize{24}{30}\selectfont Episode 2}
+
+\vspace{10pt}
+
+{\fontsize{28}{34}\selectfont\bfseries Could a World with Constant Gravity Have an Atmosphere?}
+
+\vspace{8pt}
+{\large\textit{An exploration of the strange and surprising consequences of a world where gravity never weakens}}
+
+\vspace{1.5cm}
+
+{\large Dave Rosenman}\\[4pt]
+{\normalsize \texttt{dave.rosenman.data@gmail.com}}
+
+\vspace{1.5cm}
+\rule{0.6\textwidth}{0.5pt}
+\end{center}
+
+\vspace{1cm}
+
+% ================================================================
+% INTRO
+% ================================================================
+
+\section*{From Gravity to Atmosphere}
+
+In Episode 1, we explored a bizarre but surprisingly tractable question:
+
+\begin{center}
+\textit{What would gravity be like on an infinite flat world?}
+\end{center}
+
+If you haven't read it yet, you can find it here:
+
+\begin{center}
+\url{https://github.com/DRosenman/advanced-experimental-physics/blob/master/infinite-flat-earth.pdf}
+\end{center}
+
+The key result was deeply unintuitive:
+
+\begin{center}
+\textbf{Gravity above an infinite slab is constant. It does not weaken with altitude.}
+\end{center}
+
+This single fact has enormous consequences. In this article, we take the next natural step:
+
+\begin{center}
+\textit{If gravity behaves this way, could such a world even have an atmosphere?}
+\end{center}
+
+% ================================================================
+% PART 1
+% ================================================================
+
+\section{Part 1: The Intuitive Picture}
+
+Let’s start without equations.
+
+On Earth, the atmosphere thins with altitude. The reason is simple: air has weight, and higher layers must be supported by pressure from below. But there are two competing effects:
+
+\begin{itemize}
+\item Gravity pulls air downward
+\item Pressure pushes upward
+\end{itemize}
+
+Eventually, the atmosphere becomes so thin that we effectively say it ``ends.'' But something subtle is happening.
+
+\subsection{Why Earth's Atmosphere Fades Away}
+
+On Earth, gravity weakens with altitude. That means:
+
+\begin{itemize}
+\item The higher you go, the less strongly air is pulled downward
+\item The atmosphere spreads out more easily
+\end{itemize}
+
+This contributes to the familiar exponential thinning.
+
+\subsection{What Changes in a World with Constant Gravity}
+
+If gravity is constant at all heights, there are some very strange consequences. There is no region where gravity becomes negligible. There is no ``escape'' from the pull of the planet.
+
+So what happens?
+
+\subsection{The Key Intuition}
+
+Each layer of air must support the weight of all the air above it.
+
+But now:
+
+\begin{itemize}
+\item Every layer feels the same gravitational pull
+\item There is no weakening with height
+\end{itemize}
+
+This leads to a remarkable conclusion:
+
+\begin{center}
+\fbox{\parbox{0.7\textwidth}{
+\centering
+\textbf{The atmosphere still thins exponentially, but it never truly ends.}
+}}
+\end{center}
+
+There is no natural cutoff. The air just keeps getting thinner forever.
+
+\subsection{A Strange Consequence}
+
+On Earth, we often think of space as ``above'' the atmosphere. Here, that distinction disappears. There is no boundary. Just:
+
+\begin{itemize}
+\item Dense air near the surface
+\item Extremely thin air at great heights
+\item Always \textit{some} air
+\end{itemize}
+
+The atmosphere extends infinitely.
+
+\subsection{Constant Gravity Changes Everything}
+
+At this point, it’s worth pausing to appreciate just how dramatic this result really is. An atmosphere that extends infinitely is not a small curiosity---it fundamentally reshapes how this world would look, feel, and behave.
+
+\textbf{There is no true ``space.''}\quad On Earth, we think of space as something above the atmosphere. Here, that distinction disappears. There is no boundary, no edge where air suddenly ends. Instead, the atmosphere simply becomes thinner and thinner forever. Even at extreme altitudes, there is always \textit{some} air.
+
+This picture is idealized---we are ignoring effects such as heating by and interaction with a Sun, which in a more complete model would introduce temperature gradients, atmospheric escape, and other complications. But none of these change the basic conclusion: there is no sharp boundary where the atmosphere ends.
+
+\textbf{Rockets can never truly escape.}\quad On Earth, rockets fight gravity until they reach escape velocity and leave the planet behind. In this world, even if a rocket climbs to incredible heights, it is still moving through an atmosphere that never fully disappears. Combined with the fact that gravity never weakens, space travel becomes fundamentally different: not a matter of reaching a speed, but of sustaining thrust indefinitely.
+
+\textbf{The stars might be hidden from view.}\quad On Earth, we see stars because the atmosphere eventually becomes thin enough not to scatter their light. But here, light from distant stars must pass through an infinite column of air. Even though the density drops exponentially, the total path length is unbounded. The result could be that starlight is scattered and absorbed so strongly that stars at the surface would be much dimmer or even invisible. The night sky might never become truly dark. Instead of stars, the sky could appear as a faint, diffuse glow.
+
+\textbf{The horizon behaves differently.}\quad On a spherical planet, objects disappear over the horizon because the surface curves away. Here, there is no curvature. Distant objects would not dip below the horizon---they would simply fade into the distance due to atmospheric scattering. The world would feel visually infinite in a way that is hard to imagine.
+
+\textbf{Human intuition---and evolution---would be different.}\quad On Earth, humans developed an understanding of the sky as something you can eventually leave. In a world with no edge to the atmosphere, that intuition may never arise. The idea of ``outer space'' might not even exist. The sky would not be a boundary, but an endless extension of the same environment. Over long enough timescales, that would likely shape culture, technology, myth, and even the kinds of questions people think to ask about the universe.
+
+\textbf{Energy becomes the ultimate constraint.}\quad Because both gravity and atmospheric drag persist indefinitely, climbing higher always requires more energy---forever. There is no point where the environment suddenly becomes easier to traverse. The sky is not a destination. It is an endless climb.
+
+\bigskip
+
+All of these consequences trace back to a single idea:
+
+\begin{center}
+\textit{the atmosphere never truly ends.}
+\end{center}
+
+% ================================================================
+% PART 2
+% ================================================================
+
+\section{Part 2: The Mathematics}
+
+Now let’s do the math to confirm Part 1.
+
+\subsection{Hydrostatic Equilibrium}
+
+The key equation governing atmospheres is:
+
+\begin{equation}
+\frac{dP}{dz} = -\rho g
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $P$ = pressure
+\item $\rho$ = density
+\item $g$ = gravitational acceleration
+\end{itemize}
+
+This comes from balancing forces on a thin layer of air, a standard result in fluid mechanics and atmospheric physics, often referred to as hydrostatic equilibrium.
+
+\subsection{Ideal Gas Law}
+
+Assume the atmosphere behaves like an ideal gas:
+
+\begin{equation}
+P = \rho \frac{k_B T}{m}
+\end{equation}
+
+Substitute into the hydrostatic equation:
+
+\begin{equation}
+\frac{d}{dz} \left( \rho \frac{k_B T}{m} \right) = -\rho g
+\end{equation}
+
+Assuming constant temperature:
+
+\begin{equation}
+\frac{k_B T}{m} \frac{d\rho}{dz} = -\rho g
+\end{equation}
+
+\subsection{Solve the Differential Equation}
+
+\begin{equation}
+\frac{d\rho}{dz} = -\frac{m g}{k_B T} \rho
+\end{equation}
+
+Solution:
+
+\begin{equation}
+\rho(z) = \rho_0 e^{-z/H}
+\end{equation}
+
+where the scale height is:
+
+\begin{equation}
+H = \frac{k_B T}{m g}
+\end{equation}
+
+\subsection{The Key Difference from Earth}
+
+On Earth:
+
+\begin{itemize}
+\item $g$ decreases slightly with altitude
+\end{itemize}
+
+In a world with constant gravity:
+
+\begin{itemize}
+\item $g$ is exactly constant
+\end{itemize}
+
+So:
+
+\begin{center}
+\textbf{The exponential decay continues forever with the same scale height.}
+\end{center}
+
+There is no transition to a different regime.
+
+\subsection{Total Mass of the Atmosphere}
+
+Integrate density:
+
+\begin{equation}
+\int_0^\infty \rho_0 e^{-z/H} \, dz = \rho_0 H
+\end{equation}
+
+So the total mass of atmosphere above a unit area is finite, even though the atmosphere extends infinitely.
+
+This is another surprising result.
+
+% ================================================================
+% CONCLUSION
+% ================================================================
+
+\section*{Conclusion}
+
+A world with constant gravity leads to a strange but consistent picture:
+
+\begin{itemize}
+\item Gravity never weakens
+\item The atmosphere never ends
+\item There is no sharp boundary between air and space
+\item But the total atmospheric mass above any unit area is still finite
+\end{itemize}
+
+These are just some of the consequences. We have deliberately focused on a small, tractable set of questions---isolating the role of constant gravity and following it where it leads. A more complete treatment would have to grapple with many additional effects: radiation from a Sun, temperature variation, atmospheric circulation, chemistry, and more.
+
+But even this simplified picture is enough to show how dramatically different such a world would be.
+
+\bigskip
+
+\begin{center}
+\textit{No edge. No boundary. Just an atmosphere that fades forever.}
+\end{center}
+
+\bigskip
+
+\begin{center}
+\textit{Can you think of anything else that would change?}
+\end{center}
+
+\vspace{1cm}
+
+\textbf{References}
+
+\begin{itemize}
+\item John M. Wallace and Peter V. Hobbs, \textit{Atmospheric Science: An Introductory Survey}
+\item F. Reif, \textit{Fundamentals of Statistical and Thermal Physics}
+\item J. R. Taylor, \textit{Classical Mechanics}
+\end{itemize}
+
+\end{document}
