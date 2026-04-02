@@ -1,0 +1,359 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% Colors
+\definecolor{accentblue}{RGB}{40,80,140}
+\definecolor{seriestitle}{RGB}{80,80,80}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{seriestitle}{\textsc{Absurd Physics}}}
+\fancyhead[R]{\small\textcolor{seriestitle}{Episode 3}}
+\fancyfoot[C]{\thepage}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{2pt}\hrule\vspace{4pt}]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.3em}
+
+% List formatting
+\setlist[itemize]{topsep=4pt,itemsep=2pt}
+\setcounter{secnumdepth}{1}
+
+\begin{document}
+
+\begin{center}
+{\fontsize{30}{34}\selectfont\bfseries\textcolor{accentblue}{ABSURD PHYSICS}}\\[6pt]
+{\large\textcolor{seriestitle}{\textit{Exploring impossible worlds through intuition and mathematics}}}
+
+\vspace{0.8cm}
+{\Large Episode 3}\\[6pt]
+{\fontsize{22}{26}\selectfont\bfseries What Happens When You Put the Internet in a Microwave?}\\[6pt]
+{\normalsize\textit{How a Turned-Off Microwave Disrupts Wireless Communication}}
+
+\vspace{0.8cm}
+{\large Dave Rosenman}\\[2pt]
+{\normalsize \texttt{dave.rosenman.data@gmail.com}}
+\end{center}
+
+\vspace{0.5cm}
+
+% ================================================================
+% INTRODUCTION
+% ================================================================
+
+\section*{From Kitchen Appliance to Physics Experiment}
+
+\vspace{0.3cm}
+\begin{center}
+\fbox{\parbox{0.85\textwidth}{
+\centering
+\textbf{\large CRUCIAL SAFETY WARNING}\\[4pt]
+\textbf{Warning!} This experiment should only be done with the microwave unplugged. Putting a phone inside a microwave and accidentally turning it on could destroy the phone and damage the microwave, and it may create a fire risk. The measurements discussed below were taken with the microwave off at all times.
+}}
+\end{center}
+\vspace{0.3cm}
+
+In Episode 2, I looked at atmospheres on impossible worlds. This time the setting is less cosmic and more domestic. The question is ridiculous, but it turns out to be surprisingly good physics:
+
+\begin{center}
+\textit{What happens when you put the internet in a microwave?}
+\end{center}
+
+That sentence is slightly misleading, of course. The internet is not literally inside the microwave. But a device that \emph{delivers} internet access can be. In my experiment, I used an iPhone as a \textbf{mobile hotspot}, connected an iPad to that hotspot over Wi-Fi, and then ran speed tests on the iPad. First I tested with the phone sitting normally outside the microwave. Then I repeated the test with the phone placed inside the microwave oven, with the microwave \textbf{powered off}.
+
+This means the measurements below are \emph{not} cellular speed tests run on the phone itself. They are speed tests of the \textbf{hotspot connection} from the iPad, through the phone, and out to the wider network.
+
+\textbf{Control (phone hotspot outside microwave):}
+\begin{itemize}
+    \item 2.4 GHz: 126.14 Mbps download, 37.96 Mbps upload, 48 ms ping
+    \item 5 GHz: 186.78 Mbps download, 50.25 Mbps upload, 44 ms ping
+\end{itemize}
+
+\textbf{Experimental (phone hotspot inside microwave):}
+\begin{itemize}
+    \item 2.4 GHz: 21.74 Mbps download, 12.27 Mbps upload, 65 ms ping
+    \item 5 GHz: 38.34 Mbps download, 18.83 Mbps upload, ping unstable
+\end{itemize}
+
+Putting the phone in the microwave crushed the connection. The signal did not fall all the way to zero, but it got dramatically weaker and much less stable. That raises several interesting questions at once:
+
+\begin{itemize}
+    \item Why does the microwave hurt the signal so badly?
+    \item Why does the connection survive at all?
+    \item What exactly is being blocked?
+    \item And how is this similar to putting a regular Wi-Fi router in a microwave?
+\end{itemize}
+
+The answers lead directly into Faraday cages, radio wavelengths, waveguides, and the general principle that metal boxes are terrible places to store electromagnetic signals.
+
+% ================================================================
+% PART 1
+% ================================================================
+
+\section{Part 1: The Intuitive Picture}
+
+Let’s start without equations.
+
+A microwave oven is built to trap electromagnetic radiation inside a metal enclosure. Its job is to keep microwave-frequency radiation bouncing around inside the cavity rather than leaking freely into the kitchen. In other words, a microwave is not just an appliance. It is also a deliberately engineered electromagnetic shield.
+
+So if you place a device inside that shield and expect it to communicate wirelessly with the outside world, things are likely to go badly.
+
+\subsection{How a Mobile Hotspot Actually Works}
+
+A phone acting as a mobile hotspot is doing two jobs at once.
+
+First, it connects to the internet through the \textbf{cellular network} by communicating with a nearby cell tower. Second, it acts like a tiny \textbf{Wi-Fi router}, rebroadcasting that internet connection locally so that another device---here, an iPad---can connect to it.
+
+So the signal chain in this experiment is really:
+
+\begin{center}
+cell tower \(\rightarrow\) phone over cellular, \qquad phone \(\rightarrow\) iPad over Wi-Fi
+\end{center}
+
+That means putting the phone in the microwave is not just interfering with one wireless link. It is potentially interfering with \emph{two}:
+
+\begin{itemize}
+    \item the phone's link to the cell tower
+    \item the iPad's Wi-Fi link to the phone
+\end{itemize}
+
+That is part of what makes this experiment more interesting than it first appears.
+
+\subsection{Why This Is Similar to Putting a Router in a Microwave}
+
+At first glance, a phone hotspot and a home Wi-Fi router seem like different technologies. But for this discussion, they are very similar.
+
+A normal home router gets internet from a wired connection---usually Ethernet from a modem or fiber terminal---and then broadcasts that connection through Wi-Fi. A phone hotspot does the same basic thing, except its upstream connection is \emph{cellular} instead of wired.
+
+So in a simplified picture:
+
+\begin{center}
+\textbf{Router:} internet over wire \(\rightarrow\) router \(\rightarrow\) Wi-Fi to device
+\end{center}
+
+\begin{center}
+\textbf{Hotspot:} internet over cellular \(\rightarrow\) phone \(\rightarrow\) Wi-Fi to device
+\end{center}
+
+That makes a hotspot a kind of pocket-sized modem-router combination.
+
+So what would happen if you put a normal router in the microwave? Very similar physics would show up. The metal enclosure would strongly suppress the router's Wi-Fi signal trying to get out. The main difference is that the router's internet connection from the wall would still be coming in through a wire, while the hotspot's upstream connection is also wireless and can be degraded too.
+
+So the hotspot experiment is like the router experiment, except even more brutal: a router in a microwave mainly loses its \emph{Wi-Fi output}, while a phone hotspot in a microwave can lose both its \emph{incoming cellular connection} and its \emph{outgoing Wi-Fi connection}.
+
+\subsection{What Is a Faraday Cage?}
+
+A Faraday cage is an enclosure made of conductive material. When electromagnetic fields encounter that conductor, charges in the metal rearrange in a way that strongly reduces the field that propagates through the enclosure. In an idealized picture, the cage blocks the signal. In the real world, it usually does not produce perfect extinction. Instead, it produces very strong \textbf{attenuation}.
+
+That distinction matters. A microwave is not a perfect mathematical object. It is a physical metal box with seams, edges, a mesh-covered window, and all the imperfections of an actual manufactured appliance. So the right intuition is not
+
+\begin{center}
+\textit{microwave = total signal death}
+\end{center}
+
+but rather
+
+\begin{center}
+\textit{microwave = severe signal attenuation, plus some leakage}
+\end{center}
+
+That already lines up much better with the data.
+
+\subsection{Why You Can See Through the Door}
+
+If the microwave is made of metal, why can you still see your food?
+
+Because the window is not truly open. It is covered by a metal mesh with many tiny holes. Light and radio waves are both electromagnetic waves, but they have very different wavelengths.
+
+\begin{itemize}
+    \item \textbf{Visible light:} wavelength around \(5\times 10^{-7}\) m
+    \item \textbf{2.4 GHz Wi-Fi:} wavelength about \(0.125\) m
+    \item \textbf{5 GHz Wi-Fi:} wavelength about \(0.060\) m
+\end{itemize}
+
+The holes in the mesh are enormous compared to visible light, so light passes through and you can see inside. But those same holes are tiny compared to Wi-Fi wavelengths, so to the radio waves the mesh behaves much more like a solid conducting barrier.
+
+\subsection{Why the Signal Did Not Drop to Zero}
+
+This is the part that makes the experiment interesting rather than trivial.
+
+If the microwave were a perfect Faraday cage, the iPad would have lost the hotspot completely. But real microwave ovens are not perfect. They have seams around the door, finite mesh thickness, tiny gaps, and non-ideal shielding behavior. Some energy leaks through.
+
+That means the surviving connection in the experiment is not surprising. In fact, it is exactly the kind of thing you would expect from a good but imperfect shield: the signal becomes slow, unstable, and badly damaged, but not necessarily annihilated.
+
+\subsection{Why 5 GHz Was Still Faster Than 2.4 GHz}
+
+In my measurements, the 5 GHz hotspot connection still outperformed the 2.4 GHz connection in absolute throughput, even though both were degraded badly.
+
+That does \emph{not} mean that 5 GHz universally ``penetrates microwaves better.'' Throughput is influenced by many factors besides raw field strength: antenna placement, radio hardware, channel width, error correction, retransmissions, and the rate-control algorithms used by the devices.
+
+The safest interpretation is simply this: both bands were heavily suppressed, but the surviving 5 GHz connection still happened to deliver higher throughput in this particular setup. The experiment clearly shows strong attenuation. It does not require us to claim some deep universal advantage for one band over the other.
+
+% ================================================================
+% PART 2
+% ================================================================
+
+\section{Part 2: The Mathematics}
+
+Now let’s make the picture more quantitative.
+
+\subsection{Wavelengths}
+
+The relationship between wave speed \(c\), frequency \(f\), and wavelength \(\lambda\) is
+
+\begin{equation*}
+\lambda = \frac{c}{f}.
+\end{equation*}
+
+Using \(c \approx 3\times 10^8\) m/s, we get
+
+\begin{align*}
+\lambda_{2.4} &= \frac{3\times 10^8}{2.4\times 10^9} \approx 0.125\text{ m},\\
+\lambda_{5.0} &= \frac{3\times 10^8}{5.0\times 10^9} \approx 0.060\text{ m}.
+\end{align*}
+
+So the relevant wavelengths are about 12.5 cm and 6 cm. Microwave-oven radiation at 2.45 GHz has a wavelength of about 12.2 cm, which is almost the same scale as 2.4 GHz Wi-Fi.
+
+That is already a huge clue. The microwave door is specifically engineered to suppress radiation with centimeter-scale wavelengths. Wi-Fi lives in that same general regime.
+
+\subsection{The Mesh as a Waveguide}
+
+A useful approximation is to treat each small hole in the door mesh as a short waveguide. In waveguide theory, propagation is allowed only above a certain cutoff frequency. Below that cutoff, the field does not travel normally through the guide. Instead, it becomes an \textbf{evanescent field}, which decays exponentially.
+
+For a circular waveguide of radius \(r\), the dominant mode has cutoff frequency
+
+\begin{equation*}
+f_c = \frac{1.841\,c}{2\pi r}.
+\end{equation*}
+
+If we take \(r = 1\text{ mm} = 0.001\text{ m}\), then
+
+\begin{equation*}
+f_c \approx \frac{1.841(3\times 10^8)}{2\pi(0.001)}
+\approx 8.79\times 10^{10}\text{ Hz}
+= 87.9\text{ GHz}.
+\end{equation*}
+
+That is vastly higher than either 2.4 GHz or 5 GHz. So both Wi-Fi bands lie well below cutoff.
+
+\subsection{Evanescent Decay}
+
+Below cutoff, the electric field amplitude decays roughly as
+
+\begin{equation*}
+E(z)=E_0 e^{-\alpha z},
+\end{equation*}
+
+where \(z\) is the distance through the aperture and \(\alpha\) is the attenuation constant:
+
+\begin{equation*}
+\alpha = \frac{2\pi}{c}\sqrt{f_c^2-f^2}.
+\end{equation*}
+
+Since \(f \ll f_c\), we can approximate this as
+
+\begin{equation*}
+\alpha \approx \frac{2\pi f_c}{c} = \frac{1.841}{r}.
+\end{equation*}
+
+For \(r=0.001\) m,
+
+\begin{equation*}
+\alpha \approx 1841\text{ m}^{-1}.
+\end{equation*}
+
+If the effective thickness of the conducting path is about \(z=0.001\) m, then the field amplitude is reduced by a factor
+
+\begin{equation*}
+e^{-\alpha z}=e^{-1.841}\approx 0.16.
+\end{equation*}
+
+Since power scales like the square of field amplitude, the transmitted power through that simplified model is reduced much more strongly.
+
+This should not be treated as an exact prediction of what a real microwave door transmits. A real door is not one isolated circular waveguide. It is a complicated array of openings with edges, seams, finite conductivity, and geometry that is messy in detail. But the model captures the central physical fact: centimeter-scale radio waves trying to pass through millimeter-scale holes experience strong suppression.
+
+\subsection{Connecting the Math to the Experiment}
+
+The experiment showed exactly that kind of behavior. The connection did not vanish completely, but it became far worse.
+
+For 2.4 GHz, download speed fell from 126.14 Mbps to 21.74 Mbps. For 5 GHz, it fell from 186.78 Mbps to 38.34 Mbps. In both cases, the surviving throughput was only a fraction of the original value.
+
+That does not mean one exponential formula can predict the exact speed-test result. Real throughput depends on protocol overhead, retransmissions, adaptive modulation, error correction, device-specific hardware, and how the hotspot software reacts under marginal conditions.
+
+On top of that, this experiment involves \emph{two} radio links, not one. The phone has to maintain a connection to the cell tower, and the iPad has to maintain a connection to the phone. Both may be degraded by the shielding. So the measurements reflect the combined damage done to an entire wireless chain.
+
+What the math \emph{does} predict is the qualitative regime: strong attenuation, incomplete extinction, and a connection that survives only as a damaged remnant. That is exactly what the experiment showed.
+
+% ================================================================
+% ROUTER COMPARISON
+% ================================================================
+
+\section{Part 3: What If You Put a Router in the Microwave Instead?}
+
+At this point, it is worth asking a natural follow-up question: would the result be different if I had placed a normal Wi-Fi router in the microwave instead of a phone hotspot?
+
+Yes and no.
+
+The underlying shielding physics would be the same. A router also emits electromagnetic waves in the 2.4 GHz and 5 GHz bands, and those waves would also be strongly attenuated by the metal cavity and mesh door of the microwave.
+
+But the network architecture would be simpler. A normal router usually gets internet from a wired upstream connection, not a cellular one. So putting the router in the microwave mainly attacks this link:
+
+\begin{center}
+router \(\rightarrow\) laptop or phone over Wi-Fi
+\end{center}
+
+By contrast, the hotspot experiment attacks both:
+
+\begin{center}
+cell tower \(\rightarrow\) phone, \qquad phone \(\rightarrow\) iPad
+\end{center}
+
+So in one sense, a router-in-a-microwave experiment is cleaner. It isolates the effect of the shield on the Wi-Fi broadcast itself. But in another sense, the hotspot experiment is richer, because it shows how a single metal enclosure can cripple an entire communication chain.
+
+The broader lesson is the same in both cases. Whether the signal begins as cellular data on a phone or wired internet inside a router, the final wireless link still has to survive the electromagnetic environment around it. A microwave oven is a very bad environment for that.
+
+% ================================================================
+% CONCLUSION
+% ================================================================
+
+\section*{Conclusion}
+
+A microwave oven is a very effective, but not perfect, prison for radio waves.
+
+\begin{itemize}
+    \item Its metal body strongly suppresses electromagnetic transmission.
+    \item Its door mesh has holes that are tiny compared to Wi-Fi wavelengths.
+    \item Those holes act like below-cutoff waveguides, so the fields inside them decay exponentially.
+    \item Real ovens are not perfect, so some leakage remains.
+\end{itemize}
+
+That explains why placing a phone hotspot inside a microwave does not always reduce the connection to exactly zero, but does reduce it to something slow, unstable, and barely usable.
+
+It also explains why this experiment is so similar to putting a normal router in the microwave. In both cases, the core physics is the same: a metal enclosure makes life miserable for radio waves. The difference is that the hotspot is doing double duty. It is not just broadcasting Wi-Fi. It is also trying to receive the internet wirelessly in the first place.
+
+So the final lesson is not merely that microwaves are bad places to keep electronics. It is that modern wireless technology works only because radio waves usually move through ordinary rooms without too much trouble. Put those same waves inside a box designed to trap electromagnetic radiation, and the illusion of effortless connectivity falls apart almost immediately.
+
+\bigskip
+
+
+\vspace{0.5cm}
+
+\textbf{References}
+\begin{itemize}
+    \item David J. Griffiths, \textit{Introduction to Electrodynamics}
+    \item Simon Ramo, John R. Whinnery, and Theodore Van Duzer, \textit{Fields and Waves in Communication Electronics}
+    \item David M. Pozar, \textit{Microwave Engineering}
+\end{itemize}
+
+\end{document}
