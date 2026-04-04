@@ -25,15 +25,6 @@ Investigates atmospheric structure under a perfectly constant gravitational fiel
 
 ---
 
-### Episode 3 — *Faraday Cage in the Kitchen*
-Files:
-- `absurd-physics-episode-3-faraday-cage-in-the-kitchen.latex`
-- `absurd-physics-episode-3-faraday-cage-in-the-kitchen.pdf`
-
-Analyzes a household Faraday‑cage scenario with exaggerated or impractical assumptions for comedic and educational effect.
-
----
-
 ## 🛠️ Building the Episodes
 
 Each episode is written in LaTeX and can be compiled with any standard LaTeX distribution:
