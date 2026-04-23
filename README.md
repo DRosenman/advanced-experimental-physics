@@ -23,4 +23,5 @@ A series of physics articles that start with absurd "what if" scenarios and work
 
 ## Misc Mathematics
 
+-[A Deep Dive into the Dot Product](misc-mathematics-papers/informal-derivation-of-eulers-identity.pdf)
 - [Informal Derivation of Euler's Identity](misc-mathematics-papers/informal-derivation-of-eulers-identity.pdf)
