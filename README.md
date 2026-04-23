@@ -10,6 +10,10 @@ A series of physics articles that start with absurd "what if" scenarios and work
 - [Episode 2 — What Would an Atmosphere Be Like on a World with Constant Gravity?](absurd-physics/absurd-physics-episode-2-constant-gravity-atmosphere.pdf)
 - [Episode 3 — What Happens When You Put the Internet in a Microwave?](absurd-physics/absurd-physics-episode-3-faraday-cage-in-the-kitchen.pdf)
 
+## Misc Physics and Science Papers
+
+- [Radioactive Decay and Isochron Dating of Moon Rocks](misc-physics-and-science-papers/radioactive-dating-of-moon-rocks.pdf)
+
 ## Misc Mathematics
 
 - [Informal Derivation of Euler's Identity](misc-mathematics-papers/informal-derivation-of-eulers-identity.pdf)
