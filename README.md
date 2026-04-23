@@ -2,6 +2,13 @@
 
 Experimental physics projects, computational simulations, lab work from Advanced Experimental Physics at The College of New Jersey, and physics articles.
 
+## Advanced Experimental Physics — TCNJ, Spring 2017
+
+- [Determination of the Charge to Mass Ratio of the Electron](tcnj-advanced-experimental-physics/electron_charge_to_mass_ratio_paper.pdf)
+- [Electron Charge to Mass Ratio Experimental Results](tcnj-advanced-experimental-physics/eoverm.ipynb)
+- [Electron Spin Resonance Experimental Results](tcnj-advanced-experimental-physics/electron-spin-resonance.ipynb)
+- [Magnetic Torque-Gravity Balance Experimental Results](tcnj-advanced-experimental-physics/magnetic-torque-balance.ipynb)
+
 ## Absurd Physics
 
 A series of physics articles that start with absurd "what if" scenarios and work through them with real physics. Each episode begins by building intuition around the premise in plain language, then dives into the math to see what would actually happen.
