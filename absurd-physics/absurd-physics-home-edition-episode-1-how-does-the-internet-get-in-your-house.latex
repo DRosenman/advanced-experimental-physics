@@ -1,0 +1,325 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% Colors
+\definecolor{accentblue}{RGB}{40,80,140}
+\definecolor{seriestitle}{RGB}{80,80,80}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{seriestitle}{\textsc{Absurd Physics} \textbar\ \textit{House Edition}}}
+\fancyhead[R]{\small\textcolor{seriestitle}{Episode 1}}
+\fancyfoot[C]{\thepage}
+
+% Section formatting
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{2pt}\hrule\vspace{4pt}]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.3em}
+
+% List formatting
+\setlist[itemize]{topsep=4pt,itemsep=2pt}
+\setcounter{secnumdepth}{1}
+
+\begin{document}
+
+\begin{center}
+{\fontsize{30}{34}\selectfont\bfseries\textcolor{accentblue}{ABSURD PHYSICS}}\\[4pt]
+{\large\textcolor{seriestitle}{\textsc{House Edition}}}\\[6pt]
+{\large\textcolor{seriestitle}{\textit{The absurd physics hiding in your house}}}
+
+\vspace{0.8cm}
+{\Large Episode 1}\\[6pt]
+{\fontsize{22}{26}\selectfont\bfseries How Does the Internet Get Into Your House?}\\[6pt]
+{\normalsize\textit{Underground Cables, Trapped Light, and Why Mesh Beats One Big Router}}
+
+\vspace{0.8cm}
+{\large Dave Rosenman}\\[2pt]
+{\normalsize \texttt{dave.rosenman.data@gmail.com}}
+\end{center}
+
+\vspace{0.5cm}
+
+% ================================================================
+% INTRODUCTION
+% ================================================================
+
+\section*{Welcome to the House Edition}
+
+The original \textit{Absurd Physics} column chased physics into impossible worlds. This new arc---the \textbf{House Edition}---does the opposite. It stays inside an ordinary home and asks what is secretly going on. The premise is that the everyday is just as absurd as the exotic, once you actually look.
+
+So here is the first question. You open a laptop, the little Wi-Fi symbol lights up, and a video starts playing. Where did that video physically come from, and how did it get \emph{here}?
+
+The honest answer is stranger than it sounds. The video traveled most of its journey as \textbf{pulses of light trapped inside a strand of glass thinner than a human hair}, buried in the ground under your street. It rode that glass for possibly thousands of kilometers. Only in the last few meters did it become a \textbf{radio wave} sprayed across your living room by a plastic box. That hand-off---glass to air, light to radio---is the whole story of getting online.
+
+This episode follows the signal backwards, from the screen in your hand to the cable under the street. Along the way we will hit three good pieces of physics:
+
+\begin{itemize}
+    \item why the internet runs \textbf{underground} and what is actually in those buried cables
+    \item why \textbf{fiber optic} internet beats old-fashioned cable, and how \textbf{total internal reflection} traps light in a glass thread
+    \item why a \textbf{mesh} Wi-Fi system beats one powerful router in a large house
+\end{itemize}
+
+Part 1 is the intuitive picture, no equations required. Part 2 derives the key results properly, including total internal reflection from first principles.
+
+% ================================================================
+% PART 1
+% ================================================================
+
+\section{Part 1: The Intuitive Picture}
+
+\subsection{The Internet Is Mostly Underground}
+
+We call it ``wireless,'' but Wi-Fi is wireless only for the last few meters. Everything before that is physical cable, and most of that cable is buried.
+
+There is a good reason for this. The internet is a network of cables connecting buildings, neighborhoods, cities, and continents. Those cables have to go \emph{somewhere}, and stringing every connection through the air is fragile: wind, ice, falling branches, and cars all destroy overhead lines. Burying cable protects it, keeps it out of sight, and lets a single trench carry an enormous amount of capacity. Even the connections between continents are cables---they simply run along the ocean floor instead of under a street.
+
+So the journey to your house looks roughly like this. A buried trunk line runs down your street. A connection branches off it to your home. It enters through a wall, reaches a \textbf{modem}, which hands the signal to a \textbf{router}, which finally broadcasts it as radio waves. The ``cloud'' is, physically, a lot of glass and copper in the dirt.
+
+\subsection{Two Kinds of Cable in the Ground}
+
+Not all buried cable is the same, and the difference is the heart of this episode.
+
+\textbf{Coaxial cable} (``cable internet'') is the older technology. It is a copper conductor wrapped in insulation and shielding. It carries information as a fluctuating \emph{electrical signal}---essentially a radio wave guided along a wire.
+
+\textbf{Optical fiber} (``fiber internet'') is the newer technology. It is a thread of ultra-pure glass, and it carries information as \emph{pulses of light}. A transmitter flickers a laser on and off billions of times per second; a receiver at the far end watches for the flickers.
+
+Both are buried, both reach houses, and both deliver internet. But fiber is dramatically better, and to see why, we need to look at what happens to a signal as it travels.
+
+\subsection{Why Signals Fade---and Why Light in Glass Barely Does}
+
+Any signal traveling through any medium gets weaker with distance. This is \textbf{attenuation}. The question is how \emph{fast} it fades.
+
+In a copper coaxial cable, the electrical signal fades quickly. The copper has resistance, the signal leaks and heats the wire, and---crucially---the loss gets \emph{worse at higher frequencies}. That is a serious problem, because higher frequencies are exactly what you need to carry more data. So cable internet is fighting itself: the very thing that would make it faster also makes it fade faster. In practice the signal has to be re-amplified every few hundred meters, and every amplifier adds noise and cost.
+
+In an optical fiber, light fades astonishingly slowly. Modern fiber is so transparent that light can travel tens of kilometers before it needs a boost. If ocean water were as clear as fiber glass, you could see straight to the bottom of the deepest trench. And the loss does not blow up with data rate the way it does in copper, so a single fiber can carry vastly more information, much further, with far fewer amplifiers.
+
+But none of that transparency would matter if the light leaked out the sides of the glass. It does not. And the reason it does not is the best piece of physics in this episode.
+
+\subsection{Total Internal Reflection: Light That Cannot Escape}
+
+Here is the trick that makes fiber optics possible.
+
+When light traveling inside glass hits the boundary with a less dense material (air, or a special outer glass layer called \textbf{cladding}), it normally splits: some passes through and some reflects. But if the light hits that boundary at a \emph{shallow enough angle}---a glancing angle, nearly parallel to the surface---something dramatic happens. \textbf{None} of it passes through. \emph{All} of it reflects back into the glass. This is \textbf{total internal reflection}.
+
+There is a specific cutoff, called the \textbf{critical angle}. Hit the boundary shallower than the critical angle and the light is perfectly trapped. It cannot leave. It can only bounce.
+
+An optical fiber is built around this. It has a central \textbf{core} of glass surrounded by \textbf{cladding} glass that is very slightly less optically dense. Light is launched down the core at a shallow angle, and every time it reaches the core-cladding boundary it is totally internally reflected back in. It zig-zags down the fiber, bouncing thousands of times per meter, never escaping, following the cable around corners and across continents. The glass is a perfect light pipe.
+
+You have seen a crude version of this: light traveling along a stream of water, or the glow trapped inside the curved edge of a glass object. Fiber optics is that effect, engineered to near perfection.
+
+This is the deep reason fiber beats cable. Coax guides a fading electrical signal along resistive copper. Fiber guides nearly-lossless pulses of light, locked inside the glass by a geometric law of optics. One fights physics; the other recruits it.
+
+\subsection{The Last Few Meters: Why Mesh Beats One Big Router}
+
+The fiber stops at your house. From there a router turns the signal into radio waves---and now we have a new problem, because radio waves in a house behave nothing like light in a fiber.
+
+Wi-Fi radio spreads out in all directions and gets weaker fast. The power you receive falls off sharply with distance, and every wall, floor, appliance, and mirror takes another bite out of it. In a small apartment one router is plenty. In a large house, the far bedroom is too many walls and too many meters away, and the signal arrives buried in noise.
+
+The instinct is to buy a \emph{more powerful} router. But that mostly does not work, and the reason is subtle: your laptop also has to talk \emph{back} to the router. A booming router you can hear from across the house is no help if the router cannot hear your laptop's polite reply. The link is only as good as its weaker direction.
+
+A \textbf{mesh system} solves this differently. Instead of one loud source, you place several modest nodes around the house. They relay for each other, and every device connects to the \emph{nearest} node. The trick is that a long, signal-killing path is replaced by a chain of short, healthy hops---and critically, each node \emph{regenerates} the signal to full strength before passing it on. Losses do not accumulate down the chain the way they would along one stretched-out link. Fewer walls per hop, shorter distance per hop, and a clean restart at every node. Two short hops beat one long hop, and Part 2 shows exactly why.
+
+% ================================================================
+% PART 2
+% ================================================================
+
+\section{Part 2: The Mathematics}
+
+Now we make it rigorous. The centerpiece is total internal reflection, derived from first principles. Then we quantify the fiber-versus-cable gap, and finally the mesh argument.
+
+\subsection{Snell's Law from Fermat's Principle}
+
+Light crossing a boundary between two media bends. The rule governing this is \textbf{Snell's law}, and we can derive it from \textbf{Fermat's principle}: light travels the path that takes the least time.
+
+Let medium 1 have refractive index \(n_1\) and medium 2 have index \(n_2\). The speed of light in a medium of index \(n\) is \(v = c/n\). Place the boundary along the \(x\)-axis. Light leaves point \(A = (0, a)\) in medium 1, crosses the boundary at point \((x, 0)\), and arrives at \(B = (d, -b)\) in medium 2.
+
+The total travel time is the distance in each medium divided by the speed in that medium:
+
+\begin{equation*}
+T(x) = \frac{n_1}{c}\sqrt{x^2 + a^2} \;+\; \frac{n_2}{c}\sqrt{(d-x)^2 + b^2}.
+\end{equation*}
+
+Fermat's principle says the actual crossing point minimizes \(T\), so we set \(dT/dx = 0\):
+
+\begin{equation*}
+\frac{dT}{dx} = \frac{n_1}{c}\cdot\frac{x}{\sqrt{x^2+a^2}}
+\;-\; \frac{n_2}{c}\cdot\frac{d-x}{\sqrt{(d-x)^2+b^2}} = 0.
+\end{equation*}
+
+Now identify the geometry. The angle \(\theta_1\) between the incoming ray and the normal (the vertical) satisfies \(\sin\theta_1 = x/\sqrt{x^2+a^2}\). Likewise \(\sin\theta_2 = (d-x)/\sqrt{(d-x)^2+b^2}\). Substituting:
+
+\begin{equation*}
+\frac{n_1}{c}\sin\theta_1 - \frac{n_2}{c}\sin\theta_2 = 0
+\quad\Longrightarrow\quad
+\boxed{\,n_1 \sin\theta_1 = n_2 \sin\theta_2\,}.
+\end{equation*}
+
+That is Snell's law. It falls straight out of the demand that the travel time be stationary.
+
+\subsection{The Critical Angle and Total Internal Reflection}
+
+Now let light travel \emph{from} the denser medium \emph{into} the less dense one, so \(n_1 > n_2\). Snell's law gives
+
+\begin{equation*}
+\sin\theta_2 = \frac{n_1}{n_2}\sin\theta_1.
+\end{equation*}
+
+Since \(n_1 > n_2\), the factor \(n_1/n_2 > 1\), so \(\theta_2 > \theta_1\): the refracted ray bends \emph{away} from the normal. As we increase \(\theta_1\), the refracted ray swings closer and closer to the boundary itself. At some incidence angle, \(\theta_2\) reaches \(90^\circ\) and the refracted ray runs flat along the surface. That incidence angle is the \textbf{critical angle} \(\theta_c\). Setting \(\theta_2 = 90^\circ\):
+
+\begin{equation*}
+n_1 \sin\theta_c = n_2 \sin 90^\circ = n_2
+\quad\Longrightarrow\quad
+\boxed{\,\sin\theta_c = \dfrac{n_2}{n_1}\,}.
+\end{equation*}
+
+For any \(\theta_1 > \theta_c\), Snell's law would demand \(\sin\theta_2 = (n_1/n_2)\sin\theta_1 > 1\), which is impossible for a real angle. There is no refracted ray. By conservation of energy, \emph{all} the light is reflected back into the dense medium. That is total internal reflection.
+
+A representative fiber has core index \(n_1 = 1.4475\) and cladding index \(n_2 = 1.4440\). Then
+
+\begin{equation*}
+\sin\theta_c = \frac{1.4440}{1.4475} \approx 0.99758,
+\qquad
+\theta_c \approx 86.0^\circ.
+\end{equation*}
+
+So any ray striking the core-cladding boundary at more than about \(86^\circ\) from the normal---that is, within \(4^\circ\) of running parallel to the fiber---is perfectly trapped. The whole fiber design is just an effort to keep light inside that narrow trapped cone.
+
+\subsection{The Acceptance Cone and Numerical Aperture}
+
+This raises a practical question: at what angles can light be \emph{launched} into the end of the fiber from outside (from air, index \(n_0 = 1\)) and still end up trapped?
+
+Let light enter the flat end face at angle \(\theta_{\text{in}}\) from the fiber's axis. Refraction at the end face (Snell's law, air to core):
+
+\begin{equation*}
+n_0 \sin\theta_{\text{in}} = n_1 \sin\theta_r,
+\end{equation*}
+
+where \(\theta_r\) is the angle the ray now makes with the axis inside the core. That same ray hits the side wall (the core-cladding boundary) at an angle \((90^\circ - \theta_r)\) from the wall's normal. For trapping we need that angle to be at least \(\theta_c\):
+
+\begin{equation*}
+90^\circ - \theta_r \geq \theta_c
+\quad\Longrightarrow\quad
+\theta_r \leq 90^\circ - \theta_c.
+\end{equation*}
+
+The widest accepted ray has \(\theta_r = 90^\circ - \theta_c\), so \(\sin\theta_r = \cos\theta_c\). Then
+
+\begin{equation*}
+n_0 \sin\theta_{\text{in,max}} = n_1 \cos\theta_c
+= n_1\sqrt{1 - \sin^2\theta_c}
+= n_1\sqrt{1 - \frac{n_2^2}{n_1^2}}
+= \sqrt{n_1^2 - n_2^2}.
+\end{equation*}
+
+This defines the \textbf{numerical aperture}:
+
+\begin{equation*}
+\boxed{\,\text{NA} = n_0 \sin\theta_{\text{in,max}} = \sqrt{n_1^2 - n_2^2}\,}.
+\end{equation*}
+
+For our example fiber, \(\text{NA} = \sqrt{1.4475^2 - 1.4440^2} \approx 0.101\), giving a half-acceptance angle of about \(5.8^\circ\). Light entering within that narrow cone gets guided; light outside it leaks away. Fiber is fussy about its input precisely because total internal reflection only traps a narrow range of angles.
+
+\subsection{Quantifying Fiber vs.\ Cable: The Attenuation Gap}
+
+Signal power decays exponentially with distance, which engineers write on a decibel scale:
+
+\begin{equation*}
+P(L) = P_0 \, 10^{-\alpha L / 10},
+\end{equation*}
+
+where \(\alpha\) is the attenuation in dB per unit length. The numbers are what matter:
+
+\begin{itemize}
+    \item \textbf{Modern optical fiber:} \(\alpha \approx 0.2\) dB/km, and roughly flat across the usable band.
+    \item \textbf{Coaxial cable:} \(\alpha\) is far larger and \emph{rises with frequency}---of order tens of dB per 100 m at the high frequencies needed for fast data.
+\end{itemize}
+
+Take fiber over \(L = 100\) km:
+
+\begin{equation*}
+\frac{P}{P_0} = 10^{-(0.2)(100)/10} = 10^{-2} = 1\%.
+\end{equation*}
+
+The signal survives 100 km and still retains one percent of its power---enough to detect. Now ask how far a coax run with, say, \(\alpha = 50\) dB/km would go before hitting that same \(-20\) dB level:
+
+\begin{equation*}
+\alpha L = 20 \text{ dB}
+\quad\Longrightarrow\quad
+L = \frac{20}{50} = 0.4 \text{ km}.
+\end{equation*}
+
+Same budget, and fiber reaches 100 km while coax reaches roughly 400 m---a factor of a few hundred. And because fiber's \(\alpha\) does not balloon with frequency, fiber can also carry far more data per second down that long run. That is the quantitative core of ``fiber is superior'': not a small edge, but orders of magnitude, in both reach and capacity.
+
+\subsection{Why Two Short Hops Beat One Long Hop}
+
+Finally, the mesh argument. Indoors, received Wi-Fi power follows a \textbf{log-distance path loss model}:
+
+\begin{equation*}
+L_{\text{dB}}(d) = L_0 + 10\,\gamma \log_{10}\!\left(\frac{d}{d_0}\right) + \sum_k W_k,
+\end{equation*}
+
+where \(\gamma\) is the path-loss exponent (about \(3\)--\(4\) indoors, versus \(2\) in free space), \(L_0\) is the loss at reference distance \(d_0\), and \(W_k\) are fixed penalties for each wall the signal crosses.
+
+Consider a device a distance \(d\) from a single router, with \(W\) walls in between. Its path loss is
+
+\begin{equation*}
+L_{\text{single}} = L_0 + 10\,\gamma \log_{10}\!\left(\frac{d}{d_0}\right) + W.
+\end{equation*}
+
+Now drop in a mesh node halfway, so the signal travels two hops of \(d/2\), with about \(W/2\) walls each. Because each node \emph{regenerates} the signal to full power, the losses do not add---what matters is the \emph{worst single hop}. Each hop has path loss
+
+\begin{equation*}
+L_{\text{hop}} = L_0 + 10\,\gamma \log_{10}\!\left(\frac{d/2}{d_0}\right) + \frac{W}{2}.
+\end{equation*}
+
+The improvement of one hop over the stretched single link is
+
+\begin{equation*}
+L_{\text{single}} - L_{\text{hop}}
+= 10\,\gamma \log_{10}\!\left(\frac{d}{d/2}\right) + \frac{W}{2}
+= 10\,\gamma \log_{10} 2 + \frac{W}{2}
+\approx 3.0\,\gamma + \frac{W}{2}.
+\end{equation*}
+
+For an indoor exponent \(\gamma = 3.5\), the distance term alone is about \(10.5\) dB of relief on the limiting hop---before counting the walls you no longer have to punch through. And the comparison understates the real gain, because the single-router link is bottlenecked by the device's weak \emph{reply}, traveling that same long, lossy path in reverse. The mesh fixes both directions at once. The lesson is the same shape as the fiber story: do not fight the loss over one heroic span; break the journey into short, healthy segments and restore the signal at every step.
+
+% ================================================================
+% CONCLUSION
+% ================================================================
+
+\section*{Conclusion}
+
+Follow the little Wi-Fi symbol backwards and the ordinary house turns out to be running on some genuinely beautiful physics.
+
+\begin{itemize}
+    \item The internet reaches you mostly through \textbf{buried cable}, because air is a hostile place to string a fragile signal.
+    \item The best of that cable is \textbf{optical fiber}, where information rides as pulses of light through ultra-clear glass.
+    \item The light stays in the glass because of \textbf{total internal reflection}: past the critical angle \(\sin\theta_c = n_2/n_1\), the glass becomes a perfect light trap.
+    \item Fiber's attenuation is hundreds of times lower than coax's---and unlike coax, it does not get dramatically worse at the high data rates we actually want.
+    \item In the last few meters, where the signal is a radio wave, a \textbf{mesh} system wins by replacing one long lossy link with short hops that are each regenerated to full strength.
+\end{itemize}
+
+There is a single idea running through all of it. A signal sent a long way through a hostile medium dies. The whole engineered internet is a set of clever answers to that one problem: trap the light so it cannot leak, choose the medium that barely absorbs it, and when you cannot avoid the loss, break the journey into short pieces and restart the signal at every stop. The next time a video just starts playing, remember that it spent most of its life as light that was not allowed to leave a thread of glass under your street.
+
+\bigskip
+
+\vspace{0.5cm}
+
+\textbf{References}
+\begin{itemize}
+    \item David J. Griffiths, \textit{Introduction to Electrodynamics}
+    \item Eugene Hecht, \textit{Optics}
+    \item Govind P. Agrawal, \textit{Fiber-Optic Communication Systems}
+\end{itemize}
+
+\end{document}
