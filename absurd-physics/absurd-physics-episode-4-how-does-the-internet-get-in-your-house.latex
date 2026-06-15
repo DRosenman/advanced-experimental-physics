@@ -16,8 +16,8 @@
 % Page style
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textcolor{seriestitle}{\textsc{Absurd Physics} \textbar\ \textit{House Edition}}}
-\fancyhead[R]{\small\textcolor{seriestitle}{Episode 1}}
+\fancyhead[L]{\small\textcolor{seriestitle}{\textsc{Absurd Physics}}}
+\fancyhead[R]{\small\textcolor{seriestitle}{Episode 4}}
 \fancyfoot[C]{\thepage}
 
 % Section formatting
@@ -34,11 +34,10 @@
 
 \begin{center}
 {\fontsize{30}{34}\selectfont\bfseries\textcolor{accentblue}{ABSURD PHYSICS}}\\[4pt]
-{\large\textcolor{seriestitle}{\textsc{House Edition}}}\\[6pt]
-{\large\textcolor{seriestitle}{\textit{The absurd physics hiding in your house}}}
+{\large\textcolor{seriestitle}{\textit{Exploring impossible worlds through intuition and mathematics}}}
 
 \vspace{0.8cm}
-{\Large Episode 1}\\[6pt]
+{\Large Episode 4}\\[6pt]
 {\fontsize{22}{26}\selectfont\bfseries How Does the Internet Get Into Your House?}\\[6pt]
 {\normalsize\textit{Underground Cables, Trapped Light, and Why Mesh Beats One Big Router}}
 
