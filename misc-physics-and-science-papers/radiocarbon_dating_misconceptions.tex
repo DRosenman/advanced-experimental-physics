@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{float}
+
+\setlength{\parskip}{0.75em}
+\setlength{\parindent}{0pt}
+
+\title{The Misuse of Radiocarbon Dating:\\ How Violated Assumptions Become Wrong Ages}
+\author{Dave Rosenman}
+\date{July 16, 2026}
+
+\begin{document}
+
+\maketitle
+
+Radiocarbon dating is one of the most powerful tools we have for dating the recent past, and it is also one of the most frequently abused. That is a strange combination, so it is worth asking why. The abuse is almost never a problem with the physics. The physics is just the exponential decay law that governs every radioactive isotope, and it is not in dispute. The problem is with the assumptions that sit quietly between a measurement and a date. A radiocarbon lab measures how much $^{14}\mathrm{C}$ is left in a sample; it does not measure how old the sample is. To get from one to the other you have to assume several things about the sample's history, and if any of those assumptions is false, the equation still hands you a number. The number just does not mean what you think it means.
+
+Sometimes that happens innocently: a researcher dates a shell without realizing it needs a correction, and reports an age that is off by a known amount. Sometimes it happens on purpose: someone takes a result that the method itself flags as unreliable, strips away the warning label, and presents it as though it discredited the whole enterprise. This article walks through the physics briefly, states the assumptions out in the open, and then shows how each one, when dropped, produces a confident but wrong answer. Along the way it is worth being honest about the fact that some of the loudest misuse comes from people with real scientific credentials, and about why that is not the reassurance it sounds like.
+
+\section*{The decay law and the age equation}
+
+Carbon comes in three natural isotopes. Two of them, $^{12}\mathrm{C}$ and $^{13}\mathrm{C}$, are stable and last forever. The third, $^{14}\mathrm{C}$, is radioactive. It is made continuously high in the atmosphere when cosmic rays knock neutrons loose and those neutrons strike ordinary nitrogen. Once made, a $^{14}\mathrm{C}$ atom is on borrowed time: it decays back to nitrogen by beta decay, emitting an electron and an antineutrino.
+\[
+{}^{14}_{6}\mathrm{C}
+\rightarrow
+{}^{14}_{7}\mathrm{N}
++
+{}^{0}_{-1}\beta
++
+\bar{\nu}_e
+\]
+
+As with any radioactive isotope, the rate at which the sample decays is proportional to how many $^{14}\mathrm{C}$ atoms are present. If $N$ is the number of atoms left after a time $t$, then
+\begin{equation}
+N = N_0\,e^{-\lambda t},
+\qquad
+\lambda = \frac{\ln 2}{t_{1/2}},
+\end{equation}
+where $N_0$ is how many were there to begin with and $t_{1/2}$ is the half-life, the time for half the sample to decay.\footnote{The true half-life of $^{14}\mathrm{C}$ is $5730 \pm 40$ years. Oddly, labs still \emph{report} ages using Willard Libby's original, slightly wrong value of $5568$ years, purely so that new measurements stay comparable with decades of older ones. The discrepancy is quietly removed later, during calibration. But it means a raw ``radiocarbon age'' is already using a known-to-be-wrong half-life on purpose, which is a good early warning that these numbers are more conventional than they look.} Solving equation (1) for the age gives the formula everyone actually uses:
+\begin{equation}
+t = \frac{1}{\lambda}\ln\!\left(\frac{N_0}{N}\right)
+  = \frac{t_{1/2}}{\ln 2}\ln\!\left(\frac{N_0}{N}\right).
+\end{equation}
+
+Now look closely at what is on the right-hand side of equation (2), because this is where all the trouble lives. The only thing we actually \emph{measure} is $N$, the amount of $^{14}\mathrm{C}$ in the sample today (in practice, the ratio of $^{14}\mathrm{C}$ to ordinary $^{12}\mathrm{C}$). The half-life $t_{1/2}$, and therefore $\lambda$, we take to be a fixed constant. But $N_0$, the amount of $^{14}\mathrm{C}$ the sample started with, is never measured at all. We have no time machine; we cannot go back and count. Instead we \emph{assume} we know it, on the grounds that a living thing holds the same $^{14}\mathrm{C}$ ratio as the air around it. And the whole equation quietly assumes that, ever since the organism died, the only thing that changed the $^{14}\mathrm{C}$ count was radioactive decay.
+
+So the honest way to read equation (2) is this: one measured number goes in, and one date comes out, but three assumptions are doing silent work in between. Radiocarbon dating goes wrong, whether by accident or on purpose, exactly where one of those assumptions is false.
+
+\section*{The four assumptions}
+
+Let us lay the assumptions out plainly. Libby's method rests on four:
+
+\emph{(A) A known starting ratio.} While an organism is alive it trades carbon with the atmosphere, directly or through what it eats, so it carries the same $^{14}\mathrm{C}/^{12}\mathrm{C}$ ratio as the air. When it dies, the trading stops and the clock starts.
+
+\emph{(B) A steady, well-mixed atmosphere.} We assume the atmosphere's $^{14}\mathrm{C}/^{12}\mathrm{C}$ ratio has been the same everywhere and at all times, so that ``the starting amount'' is a single known number we can plug in.
+
+\emph{(C) A closed system.} After death, the sample neither gains nor loses carbon except by decay. Nothing leaks in, nothing leaks out.
+
+\emph{(D) A steady decay rate.} The decay constant $\lambda$ has not drifted over time and does not care about temperature, chemistry, or pressure.
+
+Here is the good news, and it matters: assumption (D) is rock-solid. Beta decay is controlled by the weak nuclear force, and nothing an ordinary rock or laboratory can do to an atom will nudge that rate measurably. So anyone claiming these dates are wrong because ``decay rates might have been different in the past'' is reaching for the one assumption that is essentially unassailable. The real weaknesses are in (A), (B), and (C), and each of them supplies its own distinct flavor of misuse.
+
+\section*{How assumption (B) fails: the atmosphere was never constant}
+
+Start with the assumption of a steady atmosphere, because it is simply not true, and everyone in the field knows it. The amount of $^{14}\mathrm{C}$ the atmosphere makes depends on the cosmic-ray flux, which rises and falls with the Sun's activity and with the strength of Earth's magnetic field. The size of the carbon reservoir has also shifted with the ice ages. So the ``starting amount'' $N_0$ was genuinely different in different centuries.
+
+Two recent jolts make this vivid. Burning coal and oil, which contain no $^{14}\mathrm{C}$ at all because they are far too old, has been diluting the atmosphere and dragging its $^{14}\mathrm{C}$ ratio down (the Suess effect). Pulling in the opposite direction, above-ground nuclear bomb tests in the 1950s and early 60s roughly \emph{doubled} atmospheric $^{14}\mathrm{C}$ by 1963 (the ``bomb pulse''). Neither of these has anything to do with how old anything is, yet both changed the starting ratio for everything alive at the time.
+
+So is a raw radiocarbon number therefore useless? No. The field fixes this with \emph{calibration}. Independent records whose ages we already know, tree rings counted one by one, layered cave formations, corals, are measured for their $^{14}\mathrm{C}$, and the results are stitched into calibration curves (the IntCal series) that now stretch back roughly 50{,}000 years. You feed the raw radiocarbon age into the curve and read off the real calendar age. The misuse here is unglamorous but everywhere: quoting the uncalibrated ``radiocarbon years before present'' as if it were a date on a calendar. Worse, because the calibration curve wiggles up and down, a single measurement can map onto several separate calendar windows at once. So when you see one bare year, stated with no calibration and no error bars, someone has misused the method, whether they know it or not.
+
+\section*{How assumption (C) fails: contamination and reservoirs}
+
+No real sample is a perfectly sealed box. There are two main ways the box leaks.
+
+\emph{Reservoir effects.} Assumption (A), the known starting ratio, breaks whenever a creature eats carbon that was not in balance with the atmosphere in the first place. Sea creatures, and animals drinking ``hard'' water full of dissolved ancient limestone, take in carbon that is \emph{already old}. They are effectively born several hundred to a couple of thousand ``radiocarbon years'' old. This is the source of a favorite gotcha: the living snail or mollusk that ``dates'' to thousands of years old. It sounds devastating until you understand it. The result is not a failure of the method; it is a measurement of the local reservoir offset, a known correction that gets subtracted right back out. Waving that living-snail number around as proof that radiocarbon does not work only succeeds if you hide the correction that the method itself demands.
+
+\emph{Contamination.} Younger carbon can seep in, from groundwater, rootlets, the chemicals used to preserve a specimen, or just careless handling, and older ``dead'' carbon can dilute a sample. The crucial thing is that this is lopsided with age. For a young sample, a little old-carbon contamination barely moves the answer. But for a very old sample, a tiny trace of \emph{modern} carbon completely takes over the signal. Near the method's limit, even a few tenths of a percent of modern contamination can fake an age of tens of thousands of years no matter how old the sample truly is. This is exactly why reports of trace $^{14}\mathrm{C}$ in coal, diamonds, or dinosaur bone are not evidence of a young Earth. Those materials are so old they should contain no $^{14}\mathrm{C}$ whatsoever, and what the instrument is picking up is its own background and a whisper of contamination, not surviving original carbon. Mistaking the noise floor of a machine for a real date is about the clearest example there is of misuse ``whether they know it or not.''
+
+\section*{The range limit and the category error}
+
+Because $^{14}\mathrm{C}$ has a half-life of only $5730$ years, after about ten half-lives, somewhere around $50{,}000$ to $60{,}000$ years, so little is left that it drowns in background. Radiocarbon simply cannot see into deep time. Two misuses fall straight out of ignoring that ceiling.
+
+The first is running the method past its range and reporting the leftover noise as a date, which we just met with the coal and diamonds. The second is more basic still, a category error. Radiocarbon dates the death of something that was once alive and carbon-based. It cannot date a rock, a mineral, or the planet, because none of those got their carbon by breathing along with the atmosphere. So when someone ``refutes'' the multi-billion-year age of a rock by pointing out that carbon dating gives a young number, they have picked up entirely the wrong instrument, like trying to weigh a room in kilometers. The billion-year ages of rocks come from slow, long-lived clocks such as uranium--lead or rubidium--strontium, never from carbon. Carbon was never in the running.
+
+\section*{Why the method invites misuse, and who does it}
+
+It is worth asking why radiocarbon, of all the dating methods, attracts this much abuse. A big part of the answer is structural: a single radiocarbon measurement cannot check its own assumptions. Equation (2) takes one number in and gives one number out, and nothing in that arithmetic tells you whether the sample was contaminated or fed on an old reservoir. The analyst has to bring that judgment from outside.
+
+Compare that with an isochron method. In rubidium--strontium dating you do not date one sample; you plot several samples that formed together, graphing $^{87}\mathrm{Rb}/^{86}\mathrm{Sr}$ against $^{87}\mathrm{Sr}/^{86}\mathrm{Sr}$. If the closed-system assumption holds, the points fall on a straight line whose slope, $e^{\lambda t}-1$, gives the age. If an assumption has been violated, the points scatter and refuse to line up. The method carries its own lie detector. Basic single-sample radiocarbon has no such built-in test, which is precisely why careful labs wrap it in external controls: replicate runs, blanks, chemical pretreatment, reservoir corrections, calibration, and honest error bars. Strip those away and the same equation will still print a number, just a meaningless one.
+
+Which brings us to the uncomfortable part. It would be convenient to say the misuse comes only from the uninformed, but it does not. A good deal of the most polished misuse comes from people with genuine scientific credentials, sometimes real doctorates in geology or physics. That fact gets offered as though it should give us pause, and it is worth explaining why it should not. A credential certifies training; it does not certify that a person followed the evidence to their conclusion rather than the other way around. Some of these figures went and earned the degree \emph{specifically in order to} defend a conclusion they had already committed to, that the Earth is only a few thousand years old, and then went looking for data to fit it. That is the exact reversal of how the reasoning is supposed to run. When you have decided the answer in advance and are mining for anomalies to support it, the reservoir-offset snail and the contamination-limit diamond stop being errors to correct and become trophies to display. The credential does not make that sound; it just makes it more persuasive to an audience that trusts titles.
+
+And the conclusion those efforts are aimed at is not a close call. The Earth's age near $4.5$ billion years is not propped up by carbon dating at all, nor by any single measurement. It is the convergent verdict of many independent clocks, uranium--lead on the oldest zircon crystals, rubidium--strontium and other isochrons on meteorites and Moon rocks, that agree with one another to within a couple of percent despite relying on different elements, different half-lives, and different physics. For all of them to conspire on the same wrong answer would be a far larger miracle than the age they report. So the pattern is consistent from the innocent to the intentional: in every case the decay law itself, equation (2), is blameless. What gets misused is the chain of assumptions that turns a count of atoms into a date, and sometimes the credentials of the person doing the misusing.
+
+\section*{Conclusion}
+
+Radiocarbon dating is not fragile, and it is not a fraud. It is \emph{conditional}. Its answers are exactly as trustworthy as the assumptions behind them: a known starting ratio, a calibrated atmosphere, and a sealed system, used on the right kind of material and within the last fifty thousand years or so. Every famous ``failure'' you have heard of, the ancient living snail, the tens-of-thousands-of-years-old coal, the carbon date that ``contradicts'' a rock's billion-year age, is not the physics breaking down. It is a case where one of those assumptions was quietly dropped, occasionally by someone who knew better and wanted the number anyway. Used properly, radiocarbon dating is remarkably accurate. Used without its safeguards, it produces confident figures that mean nothing, and it is the confidence, far more than the carbon, that does the damage.
+
+\section*{Notes}
+
+\begin{enumerate}
+    \item R.\ Nave, ``Carbon Dating,'' HyperPhysics, Georgia State University.\\
+    \url{http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/cardat.html}
+
+    \item P.\ J.\ Reimer et al., ``The IntCal20 Northern Hemisphere Radiocarbon Age Calibration Curve (0--55 cal kBP),'' \emph{Radiocarbon} \textbf{62}(4), 725--757 (2020).\\
+    \url{https://doi.org/10.1017/RDC.2020.41}
+
+    \item A.\ J.\ T.\ Jull and G.\ S.\ Burr, ``The Remarkable Metrological History of Radiocarbon Dating [II],'' \emph{Journal of Research of NIST} (reprinted, PMC).\\
+    \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC4853109/}
+
+    \item C.\ Stassen, ``Isochron Dating,'' The TalkOrigins Archive --- a response to common creationist objections, including reservoir and contamination anomalies.\\
+    \url{https://www.talkorigins.org/faqs/isochron-dating.html}
+
+    \item Marine Reservoir Effect and corrections to radiocarbon dates, Beta Analytic.\\
+    \url{https://www.radiocarbon.com/marine-reservoir-effect.htm}
+\end{enumerate}
+
+\end{document}
