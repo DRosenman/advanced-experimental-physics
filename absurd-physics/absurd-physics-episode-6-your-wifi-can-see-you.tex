@@ -455,13 +455,13 @@ This is the blink-per-ring-crossed of Part~1, and it is also a Doppler shift in 
 
 \subsubsection{Trick 1: the rings, derived}
 
-A point at perpendicular distance $r$ from the router--laptop line, at distances $d_1$ and $d_2$ from the two radios along it, adds excess path
+A point at perpendicular distance $r$ from the router--laptop line, at distances $d_1$ and $d_2$ from the two radios along it, adds excess path length $\Delta\ell$ (bounced route minus direct route):
 \begin{equation}
-  \Delta \;=\; \sqrt{d_1^2 + r^2} + \sqrt{d_2^2 + r^2} - (d_1 + d_2)
+  \Delta\ell \;=\; \sqrt{d_1^2 + r^2} + \sqrt{d_2^2 + r^2} - (d_1 + d_2)
   \;\approx\; \frac{r^2}{2}\left(\frac{1}{d_1} + \frac{1}{d_2}\right)
   \quad (r \ll d_1, d_2).
 \end{equation}
-Setting $\Delta = n\lambda/2$ gives the ring boundaries of Figure~\ref{fig:fresnel}:
+Each half wavelength of extra path slips the echo's phase by $\pi$ relative to the direct signal---one flip between reinforcing and canceling---so setting $\Delta\ell = n\lambda/2$ gives the ring boundaries of Figure~\ref{fig:fresnel}:
 \begin{equation}
   r_n \;=\; \sqrt{\frac{n\,\lambda\, d_1 d_2}{d_1 + d_2}} .
 \end{equation}
